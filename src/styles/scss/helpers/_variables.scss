@@ -1,0 +1,82 @@
+
+/* Colors
+-------------------------------------------------------------- */
+$mailbu:                     #6fc1ff !default;
+$cerulean-blue:              #2642CC !default;
+$blue:                       #273ac4 !default;
+$bay-blue:                   #2e2d92 !default;
+$jackson-blue:               #1A2B80 !default;
+$black-rock:                 #02021e !default;
+$dark-violet:                #1d0a47 !default;
+$stratos:                    #020038 !default;
+$cadet-gray:                 #b0b3c5 !default;
+$mischka-gray:               #d2d2e0 !default;
+$athens-gray:                #eeeef4 !default;
+
+/* Typography
+-------------------------------------------------------------- */
+@font-face {
+  font-family: 'circular-black';
+  src: url('./../../assets/fonts/circular-black.otf');
+}
+@font-face {
+  font-family: 'circular-bold';
+  src: url('./../../assets/fonts/circular-bold.otf');
+}
+@font-face {
+  font-family: 'circular-book';
+  src: url('./../../assets/fonts/circular-book.otf');
+}
+@font-face {
+  font-family: 'circular-medium';
+  src: url('./../../assets/fonts/circular-medium.otf');
+}
+
+$headers-family:             'circular-black', 'Arial', sans-serif;
+$base-family:                'circular-book', 'Arial', sans-serif;
+$font-color:                  $dark-violet;
+$font-color-light:            $cadet-gray;
+
+
+/* Borders
+-------------------------------------------------------------- */
+$radius-base:                 5px !default;
+
+
+/* Animations
+-------------------------------------------------------------- */
+$duration:                    0.5s;
+$duration-normal:               1s;
+$fast-duration:               0.3s;
+$slide-from-top-duration:     1.5s;
+
+$delay:                       $duration-normal + $fast-duration;
+$delay-end:                   $delay*3;
+$images-delay:                2.2s;
+$animation-in-end:            $slide-from-top-duration + $images-delay + $fast-duration;
+
+$cubic-brazier:               cubic-bezier(.500, .250, .310, .955);
+$cubic-ease-in:        cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+
+/* Breakpoints
+-------------------------------------------------------------- */
+// Extra small screen / phone
+$screen-xs:                  480px !default;
+
+// Small screen / tablet
+$screen-sm:                  768px !default;
+
+// Medium screen / desktop
+$screen-md:                  992px !default;
+
+// Large screen / wide desktop
+$screen-lg:                  1200px !default;
+
+// Large screen / wide desktop
+$screen-lg-xl:               1600px !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm - 1) !default;
+$screen-sm-max:              ($screen-md - 1) !default;
+$screen-md-max:              ($screen-lg - 1) !default;

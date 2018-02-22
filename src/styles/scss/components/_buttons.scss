@@ -1,0 +1,69 @@
+.button {
+  border-radius: $radius-base/2;
+  border: 0;
+  font-size: 14px;
+  font-size: 1.4rem;
+  text-align: left;
+  cursor: pointer;
+
+  &--gradient {
+    position: relative;
+    padding-left: 10px;
+    width: 200px;
+    height: 50px;
+    overflow: hidden;
+    opacity: 0;
+    @include gradient-horizontal($cerulean-blue, $bay-blue);
+
+    .animation-start &{
+      animation: $slide-from-top-duration ease-in $images-delay 1 normal forwards fadeFromTopRelative;
+    }
+
+    &:hover {
+      @include gradient-horizontal(darken($cerulean-blue, 5%), darken($bay-blue, 5%));
+    }
+
+    @media #{$media-lg-xl}{
+      width: 220px;
+      height: 60px;
+    }
+
+    span {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+      color: #fff;
+      overflow: hidden;
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 60%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: $jackson-blue;
+        z-index: -1;
+
+        .animation-start & {
+          animation: $duration ease-in $animation-in-end 1 normal forwards fadeOutToRight;
+        }
+      }
+    }
+  }
+
+  &--icon {
+    position: relative;
+
+    i {
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+  }
+}

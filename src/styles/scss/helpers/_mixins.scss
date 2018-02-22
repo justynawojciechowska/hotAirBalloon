@@ -1,0 +1,73 @@
+/* Media queries
+-------------------------------------------------------------- */
+$screen: "only screen";
+
+$media-lg-xl: "#{$screen} and (min-width:#{$screen-lg-xl})";
+$media-lg: "#{$screen} and (min-width:#{$screen-lg})";
+
+$media-md-up: "#{$screen} and (min-width:#{$screen-md})";
+$media-md: "#{$screen} and (min-width:#{$screen-md}) and (max-width:#{$screen-md-max})";
+$media-to-md: "#{$screen} and (max-width:#{$screen-md-max})";
+
+$media-sm-up: "#{$screen} and (min-width:#{$screen-sm})";
+$media-sm: "#{$screen} and (min-width:#{$screen-sm}) and (max-width:#{$screen-sm-max})";
+$media-to-sm: "#{$screen} and (max-width:#{$screen-sm-max})";
+
+$media-xs-up: "#{$screen} and (min-width:#{$screen-xs})";
+$media-xs: "#{$screen} and (max-width:#{$screen-xs-max})";
+$media-xs-small: "#{$screen} and (max-width:#{$screen-xs})";
+
+/* Gradient
+-------------------------------------------------------------- */
+@mixin gradient($color1, $color2) {
+  background: $color1; //old browsers
+  background: -moz-linear-gradient(top, $color1 0%, $color2 100%);
+  background: -webkit-linear-gradient(top, $color1 0%, $color2 100%);
+  background: linear-gradient(to bottom, $color1 0%, $color2 100%);
+}
+
+@mixin gradient-horizontal($color1, $color2) {
+  background: $color1; //old browsers
+  background: -moz-linear-gradient(right, $color1 0%, $color2 100%);
+  background: -webkit-linear-gradient(right, $color1 0%, $color2 100%);
+  background: linear-gradient(to right, $color1 0%, $color2 100%);
+}
+
+/* Retina
+-------------------------------------------------------------- */
+@mixin background-2x($path, $ext: "png", $w: auto, $h: auto, $pos: left top, $repeat: no-repeat) {
+
+  $at1x_path: "#{$path}.#{$ext}";
+  $at2x_path: "#{$path}@2x.#{$ext}";
+
+  background-image: url("#{$at1x_path}");
+  background-size: $w $h;
+  background-position: $pos;
+  background-repeat: $repeat;
+
+  @media all and (-webkit-min-device-pixel-ratio : 1.5),
+  all and (-o-min-device-pixel-ratio: 3/2),
+  all and (min--moz-device-pixel-ratio: 1.5),
+  all and (min-device-pixel-ratio: 1.5) {
+    background-image: url("#{$at2x_path}");
+  }
+}
+
+
+/* Animations
+-------------------------------------------------------------- */
+@mixin fadeFromTop($marginTop){
+  @keyframes fadeFromTop {
+    0% {
+      opacity: 0;
+      margin-bottom: $marginTop;
+    }
+    60%{
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+      margin-bottom: 0;
+    }
+  }
+}

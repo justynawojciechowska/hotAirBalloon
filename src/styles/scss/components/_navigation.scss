@@ -1,0 +1,18 @@
+.navigation{
+  position: relative;
+  height: 100%;
+  padding: 20px 0;
+
+  &__btn{
+    display: block;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
+
+  &__social-links{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
