@@ -155,7 +155,7 @@
     right: 60%;
     width: 0; } }
 
-/* Fade out
+/* Other animations
 -------------------------------------------------------------- */
 @keyframes moveDown {
   0% {
@@ -168,6 +168,12 @@
     width: 0; }
   100% {
     width: 100%; } }
+
+@keyframes widthCloseAnimation {
+  0% {
+    width: 100%; }
+  100% {
+    width: 0; } }
 
 /* Fire animation
 -------------------------------------------------------------- */
@@ -752,10 +758,19 @@ a {
     white-space: nowrap; }
     .animation-start .article__header p:nth-child(1) {
       animation: widthAnimation 0.5s steps(50, end) 1.3s 1 normal forwards; }
+    .animation-ended .article__header p:nth-child(1) {
+      width: 100%;
+      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
     .animation-start .article__header p:nth-child(2) {
       animation: widthAnimation 0.5s steps(50, end) 1.8s 1 normal forwards; }
+    .animation-ended .article__header p:nth-child(2) {
+      width: 100%;
+      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
     .animation-start .article__header p:nth-child(3) {
       animation: widthAnimation 0.5s steps(50, end) 2.3s 1 normal forwards; }
+    .animation-ended .article__header p:nth-child(3) {
+      width: 100%;
+      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
   .article__subheader {
     position: relative;
     color: #273ac4;
@@ -764,6 +779,9 @@ a {
     opacity: 0; }
     .animation-start .article__subheader {
       animation: 0.5s ease-in 1.3s 1 normal forwards smoothFadeFromTopRelative; }
+    .animation-ended .article__subheader {
+      opacity: 1;
+      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
   .article__desc {
     width: 90%;
     margin-bottom: 40px;
@@ -778,6 +796,9 @@ a {
         margin-bottom: 60px; } }
     .animation-start .article__desc {
       animation: 0.5s ease-in 1.8s 1 normal forwards smoothFadeFromTopRelative; }
+    .animation-ended .article__desc {
+      opacity: 1;
+      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
 
 /* Navigation
 -------------------------------------------------------------- */
@@ -826,6 +847,9 @@ a {
     background: linear-gradient(to right, #2642CC 0%, #2e2d92 100%); }
     .animation-start .button--gradient {
       animation: 1.5s ease-in 2.2s 1 normal forwards fadeFromTopRelative; }
+    .animation-ended .button--gradient {
+      opacity: 1;
+      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
     .button--gradient:hover {
       background: #223bb7;
       background: -moz-linear-gradient(right, #223bb7 0%, #28277f 100%);
@@ -999,10 +1023,19 @@ a {
         color: white; }
     .animation-start .social-links__item:nth-child(1) {
       animation: 0.3s ease-in 1.3s 1 normal forwards show; }
+    .animation-ended .social-links__item:nth-child(1) {
+      opacity: 1;
+      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
     .animation-start .social-links__item:nth-child(2) {
       animation: 0.3s ease-in 1.6s 1 normal forwards show; }
+    .animation-ended .social-links__item:nth-child(2) {
+      opacity: 1;
+      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
     .animation-start .social-links__item:nth-child(3) {
       animation: 0.3s ease-in 1.9s 1 normal forwards show; }
+    .animation-ended .social-links__item:nth-child(3) {
+      opacity: 1;
+      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
   .social-links__link {
     display: block; }
     .social-links__link i {

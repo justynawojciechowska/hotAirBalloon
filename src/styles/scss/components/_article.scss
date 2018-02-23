@@ -33,6 +33,11 @@
               animation: widthAnimation $duration steps(50, end) ($delay + 2*$duration) 1 normal forwards;
             }
           }
+
+          .animation-ended & {
+            width: 100%;
+            animation: $duration linear $delay-end 1 normal alternate widthCloseAnimation;
+          }
         }
       }
     }
@@ -49,6 +54,10 @@
 
     .animation-start & {
       animation: $duration ease-in $delay 1 normal forwards smoothFadeFromTopRelative;
+    }
+    .animation-ended & {
+      opacity: 1;
+      animation: $duration linear $delay-end 1 normal forwards fadeOut;
     }
   }
 
@@ -67,9 +76,13 @@
       width: 80%;
       margin-bottom: 60px;
     }
-
     .animation-start & {
       animation: $duration ease-in ($delay + $duration) 1 normal forwards smoothFadeFromTopRelative;
+    }
+
+    .animation-ended & {
+      opacity: 1;
+      animation: $duration linear $delay-end 1 normal forwards fadeOut;
     }
   }
 }

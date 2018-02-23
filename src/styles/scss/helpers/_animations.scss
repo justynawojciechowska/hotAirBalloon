@@ -174,7 +174,7 @@
   }
 }
 
-/* Fade out
+/* Other animations
 -------------------------------------------------------------- */
 @keyframes moveDown {
   0% {
@@ -194,6 +194,17 @@
     width: 100%;
   }
 }
+
+@keyframes widthCloseAnimation {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
 
 /* Fire animation
 -------------------------------------------------------------- */

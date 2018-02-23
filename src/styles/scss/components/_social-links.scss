@@ -32,6 +32,11 @@
             animation: $duration-fast ease-in ($delay + $duration-fast*2) 1 normal forwards show;
           }
         }
+
+        .animation-ended & {
+          opacity: 1;
+          animation: $duration linear $delay-end 1 normal forwards fadeOut;
+        }
       }
     }
   }

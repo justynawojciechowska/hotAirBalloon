@@ -25,6 +25,11 @@
       animation: $slide-from-top-duration ease-in $images-delay 1 normal forwards fadeFromTopRelative;
     }
 
+    .animation-ended & {
+      opacity: 1;
+      animation: $duration linear $delay-end 1 normal forwards fadeOut;
+    }
+
     &:hover {
       @include gradient-horizontal(darken($cerulean-blue, 5%), darken($bay-blue, 5%));
     }
