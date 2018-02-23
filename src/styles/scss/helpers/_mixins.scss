@@ -52,22 +52,3 @@ $media-xs-small: "#{$screen} and (max-width:#{$screen-xs})";
     background-image: url("#{$at2x_path}");
   }
 }
-
-
-/* Animations
--------------------------------------------------------------- */
-@mixin fadeFromTop($marginTop){
-  @keyframes fadeFromTop {
-    0% {
-      opacity: 0;
-      margin-bottom: $marginTop;
-    }
-    60%{
-      opacity: 0.7;
-    }
-    100% {
-      opacity: 1;
-      margin-bottom: 0;
-    }
-  }
-}

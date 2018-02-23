@@ -1,3 +1,6 @@
+
+/* Balloon
+-------------------------------------------------------------- */
 .balloon {
   position: absolute;
   top: 50%;
@@ -11,7 +14,8 @@
     animation: $duration $cubic-brazier $duration-normal 1 normal forwards fadeFromLeft;
   }
 
-
+  /* Balloon background image
+  -------------------------------------------------------------- */
   &__bckg-img {
     position: absolute;
     top: 0;
@@ -32,6 +36,8 @@
     }
   }
 
+  /* Balloon images
+  -------------------------------------------------------------- */
   &__img {
     position: absolute;
     opacity: 0;
@@ -45,6 +51,8 @@
       animation: $duration ease-in $delay-end 1 normal forwards fadeOut;
     }
 
+    /* Balloon image
+    -------------------------------------------------------------- */
     &--balloon {
       bottom: 10%;
       width: 370px;
@@ -61,11 +69,13 @@
       }
     }
 
+    /* Cloud images
+    -------------------------------------------------------------- */
     &--cloud {
 
-      .animation-out & {
+      .animation-balloon-out & {
         opacity: 1;
-        animation: $duration-normal ease-in ($delay+ ($duration*4)) 1 normal forwards moveDown;
+        animation: $duration-normal ease-in $balloon-out-delay 1 normal forwards moveDown;
       }
 
       .animation-ended & {
@@ -95,16 +105,20 @@
     }
   }
 
+  /* Wrapper of balloon image and fire images
+  -------------------------------------------------------------- */
   &__wrapper {
     position: absolute;
     width: 100%;
     height: 100%;
 
-    .animation-out & {
-      animation: 4.5s $cubic-ease-in ($delay+ ($duration*4)) 1 normal forwards fadeOutToTop;
+    .animation-balloon-out & {
+      animation: 4.5s $cubic-ease-in $balloon-out-delay 1 normal forwards fadeOutToTop;
     }
   }
 
+  /* Fire images
+  -------------------------------------------------------------- */
   &__fire {
     position: absolute;
     left: 50%;
@@ -128,20 +142,20 @@
       transform: translateX(-50%);
 
       &--big {
-        .animation-out & {
-          animation: fadeBigFire $duration ease-in $delay+$duration*2 1 normal forwards;
+        .animation-balloon-out & {
+          animation: fadeBigFire $duration ease-in $fire3-delay 1 normal forwards;
         }
       }
 
       &--medium {
-        .animation-out & {
-          animation: fadeMediumFire $duration ease-in $delay+$duration 1 normal forwards;
+        .animation-balloon-out & {
+          animation: fadeMediumFire $duration ease-in $fire2-delay 1 normal forwards;
         }
       }
 
       &--small {
-        .animation-out & {
-          animation: fadeSmallFire $duration ease-in $delay 1 normal forwards;
+        .animation-balloon-out & {
+          animation: fadeSmallFire $duration ease-in $fire1-delay 1 normal forwards;
         }
       }
     }

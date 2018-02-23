@@ -23,10 +23,10 @@ class App extends Component {
         const bodyContainsClass = document.body.classList.contains('animation-ended');
 
         if ((e.target == e.currentTarget) && bodyContainsClass) {
-            setTimeout(()=>{
+            setTimeout(() => {
                 this.setState({resetAnimation: true})
             }, 2000)
-        }else{
+        } else {
             this.setState({resetAnimation: false})
         }
     }

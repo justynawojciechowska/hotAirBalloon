@@ -32,8 +32,6 @@
 -------------------------------------------------------------- */
 /* Retina
 -------------------------------------------------------------- */
-/* Animations
--------------------------------------------------------------- */
 /* Fade in
 -------------------------------------------------------------- */
 @keyframes show {
@@ -729,10 +727,18 @@ a {
 
 /* Components
 -------------------------------------------------------------- */
+/* Article
+-------------------------------------------------------------- */
 .article {
   width: 65%;
   margin: 40px 0 65px;
-  overflow: hidden; }
+  overflow: hidden;
+  /* Article header
+  -------------------------------------------------------------- */
+  /* Article subheader
+  -------------------------------------------------------------- */
+  /* Article description
+  -------------------------------------------------------------- */ }
   @media only screen and (min-width: 1200px) {
     .article {
       margin-top: 8%; } }
@@ -773,10 +779,16 @@ a {
     .animation-start .article__desc {
       animation: 0.5s ease-in 1.8s 1 normal forwards smoothFadeFromTopRelative; }
 
+/* Navigation
+-------------------------------------------------------------- */
 .navigation {
   position: relative;
   height: 100%;
-  padding: 20px 0; }
+  padding: 20px 0;
+  /* Navigation hamburger btn
+  -------------------------------------------------------------- */
+  /* Navigation social links
+  -------------------------------------------------------------- */ }
   .navigation__btn {
     display: block;
     margin: 0 auto;
@@ -787,6 +799,8 @@ a {
     left: 50%;
     transform: translateX(-50%); }
 
+/* Button
+-------------------------------------------------------------- */
 .button {
   border-radius: 2.5px;
   border: 0;
@@ -794,7 +808,11 @@ a {
   font-size: 1.4rem;
   text-align: left;
   cursor: pointer;
-  background: none; }
+  background: none;
+  /* Button with gradient
+  -------------------------------------------------------------- */
+  /* Button with icon
+  -------------------------------------------------------------- */ }
   .button--gradient {
     position: relative;
     padding-left: 10px;
@@ -846,6 +864,8 @@ a {
       font-size: 1.2rem;
       color: #fff; }
 
+/* Balloon
+-------------------------------------------------------------- */
 .balloon {
   position: absolute;
   top: 50%;
@@ -853,7 +873,15 @@ a {
   height: 80%;
   width: 45%;
   opacity: 0;
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+  /* Balloon background image
+  -------------------------------------------------------------- */
+  /* Balloon images
+  -------------------------------------------------------------- */
+  /* Wrapper of balloon image and fire images
+  -------------------------------------------------------------- */
+  /* Fire images
+  -------------------------------------------------------------- */ }
   .animation-start .balloon {
     animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeft; }
   .balloon__bckg-img {
@@ -878,7 +906,11 @@ a {
       animation: 0.5s ease-in 3.9s 1 normal forwards fadeOutToLeft; }
   .balloon__img {
     position: absolute;
-    opacity: 0; }
+    opacity: 0;
+    /* Balloon image
+    -------------------------------------------------------------- */
+    /* Cloud images
+    -------------------------------------------------------------- */ }
     .animation-start .balloon__img {
       animation: 1.5s ease-in 2s 1 normal forwards fadeFromTop; }
     .animation-ended .balloon__img {
@@ -896,7 +928,7 @@ a {
       @media only screen and (min-width: 1800px) {
         .balloon__img--balloon {
           width: 75%; } }
-    .animation-out .balloon__img--cloud {
+    .animation-balloon-out .balloon__img--cloud {
       opacity: 1;
       animation: 1s ease-in 3.3s 1 normal forwards moveDown; }
     .animation-ended .balloon__img--cloud {
@@ -920,7 +952,7 @@ a {
     position: absolute;
     width: 100%;
     height: 100%; }
-    .animation-out .balloon__wrapper {
+    .animation-balloon-out .balloon__wrapper {
       animation: 4.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 3.3s 1 normal forwards fadeOutToTop; }
   .balloon__fire {
     position: absolute;
@@ -941,33 +973,37 @@ a {
       width: 0;
       opacity: 0;
       transform: translateX(-50%); }
-      .animation-out .balloon__fire-img--big {
+      .animation-balloon-out .balloon__fire-img--big {
         animation: fadeBigFire 0.5s ease-in 2.3s 1 normal forwards; }
-      .animation-out .balloon__fire-img--medium {
+      .animation-balloon-out .balloon__fire-img--medium {
         animation: fadeMediumFire 0.5s ease-in 1.8s 1 normal forwards; }
-      .animation-out .balloon__fire-img--small {
+      .animation-balloon-out .balloon__fire-img--small {
         animation: fadeSmallFire 0.5s ease-in 1.3s 1 normal forwards; }
 
-.social-links__item {
-  margin-bottom: 10px;
-  width: 40px;
-  height: 40px;
-  background-color: #eeeef4;
-  border-radius: 5px;
-  text-align: center;
-  opacity: 0; }
-  .social-links__item:hover {
-    background-color: #6fc1ff; }
-    .social-links__item:hover i {
-      color: white; }
-  .animation-start .social-links__item:nth-child(1) {
-    animation: 0.3s ease-in 1.3s 1 normal forwards show; }
-  .animation-start .social-links__item:nth-child(2) {
-    animation: 0.3s ease-in 1.6s 1 normal forwards show; }
-  .animation-start .social-links__item:nth-child(3) {
-    animation: 0.3s ease-in 1.9s 1 normal forwards show; }
-
-.social-links__link {
-  display: block; }
-  .social-links__link i {
-    line-height: 40px; }
+/* Social links
+-------------------------------------------------------------- */
+.social-links {
+  /* Social links item
+  -------------------------------------------------------------- */ }
+  .social-links__item {
+    margin-bottom: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #eeeef4;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0; }
+    .social-links__item:hover {
+      background-color: #6fc1ff; }
+      .social-links__item:hover i {
+        color: white; }
+    .animation-start .social-links__item:nth-child(1) {
+      animation: 0.3s ease-in 1.3s 1 normal forwards show; }
+    .animation-start .social-links__item:nth-child(2) {
+      animation: 0.3s ease-in 1.6s 1 normal forwards show; }
+    .animation-start .social-links__item:nth-child(3) {
+      animation: 0.3s ease-in 1.9s 1 normal forwards show; }
+  .social-links__link {
+    display: block; }
+    .social-links__link i {
+      line-height: 40px; }

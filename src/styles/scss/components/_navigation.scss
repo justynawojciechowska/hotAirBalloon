@@ -1,14 +1,21 @@
+
+/* Navigation
+-------------------------------------------------------------- */
 .navigation{
   position: relative;
   height: 100%;
   padding: 20px 0;
 
+  /* Navigation hamburger btn
+  -------------------------------------------------------------- */
   &__btn{
     display: block;
     margin: 0 auto;
     padding: 10px 0;
   }
 
+  /* Navigation social links
+  -------------------------------------------------------------- */
   &__social-links{
     position: absolute;
     bottom: 0;

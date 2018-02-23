@@ -1,4 +1,9 @@
+/* Social links
+-------------------------------------------------------------- */
 .social-links {
+
+  /* Social links item
+  -------------------------------------------------------------- */
   &__item {
     margin-bottom: 10px;
     width: 40px;
@@ -16,21 +21,17 @@
       }
     }
 
-    &:nth-child(1) {
-      .animation-start & {
-        animation: $duration-fast ease-in $delay 1 normal forwards show;
-      }
-    }
-
-    &:nth-child(2) {
-      .animation-start &{
-        animation: $duration-fast ease-in ($delay + $duration-fast) 1 normal forwards show;
-      }
-    }
-
-    &:nth-child(3) {
-      .animation-start &{
-        animation: $duration-fast ease-in ($delay + $duration-fast*2) 1 normal forwards show;
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        .animation-start & {
+          @if $i == 1 {
+            animation: $duration-fast ease-in $delay 1 normal forwards show;
+          } @else if $i == 2 {
+            animation: $duration-fast ease-in ($delay + $duration-fast) 1 normal forwards show;
+          } @else {
+            animation: $duration-fast ease-in ($delay + $duration-fast*2) 1 normal forwards show;
+          }
+        }
       }
     }
   }

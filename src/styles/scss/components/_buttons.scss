@@ -1,3 +1,6 @@
+
+/* Button
+-------------------------------------------------------------- */
 .button {
   border-radius: $radius-base/2;
   border: 0;
@@ -7,6 +10,8 @@
   cursor: pointer;
   background: none;
 
+  /* Button with gradient
+  -------------------------------------------------------------- */
   &--gradient {
     position: relative;
     padding-left: 10px;
@@ -54,6 +59,8 @@
     }
   }
 
+  /* Button with icon
+  -------------------------------------------------------------- */
   &--icon {
     position: relative;
 

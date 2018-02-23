@@ -23,7 +23,7 @@ class Ballon extends React.Component {
 
     balloonImgAnimation = (e) => {
         if(e.animationName == 'fadeFromTop'){
-            this.setState({balloonAnimationClass: 'animation-out'})
+            this.setState({balloonAnimationClass: 'animation-balloon-out'})
         }
     };
 
