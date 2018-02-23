@@ -18,19 +18,19 @@
 
     &:nth-child(1) {
       .animation-start & {
-        animation: $fast-duration ease-in $delay 1 normal forwards show;
+        animation: $duration-fast ease-in $delay 1 normal forwards show;
       }
     }
 
     &:nth-child(2) {
       .animation-start &{
-        animation: $fast-duration ease-in ($delay + $fast-duration) 1 normal forwards show;
+        animation: $duration-fast ease-in ($delay + $duration-fast) 1 normal forwards show;
       }
     }
 
     &:nth-child(3) {
       .animation-start &{
-        animation: $fast-duration ease-in ($delay + $fast-duration*2) 1 normal forwards show;
+        animation: $duration-fast ease-in ($delay + $duration-fast*2) 1 normal forwards show;
       }
     }
   }

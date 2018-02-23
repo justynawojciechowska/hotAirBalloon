@@ -39,6 +39,10 @@
       z-index: 2;
 
       @media #{$media-lg}{
+        width: 430px;
+      }
+
+      @media #{$media-lg-xl}{
         width: 75%;
       }
     }
@@ -47,7 +51,7 @@
 
       .animation-out & {
         opacity: 1;
-        animation: $duration-normal ease-in $duration*4 1 normal forwards moveDown;
+        animation: $duration-normal ease-in ($delay+ ($duration*4)) 1 normal forwards moveDown;
       }
 
       .animation-ended & {
@@ -83,7 +87,7 @@
     height: 100%;
 
     .animation-out & {
-      animation: 2s $cubic-ease-in $images-delay 1 normal forwards slideOutToTop;
+      animation: 4.5s $cubic-ease-in ($delay+ ($duration*4)) 1 normal forwards slideOutToTop;
     }
   }
 
@@ -96,6 +100,9 @@
     transform: translateX(-50%);
     z-index: 9;
 
+    @media #{$media-lg}{
+      bottom: 35%;
+    }
     @media #{$media-lg-xl}{
       bottom: 31%;
     }
@@ -111,19 +118,19 @@
 
       &--big {
         .animation-out & {
-          animation: fadeBigFire $duration ease-in $duration*3 1 normal forwards;
+          animation: fadeBigFire $duration ease-in $delay+$duration*2 1 normal forwards;
         }
       }
 
       &--medium {
         .animation-out & {
-          animation: fadeMediumFire $duration ease-in $duration*2 1 normal forwards;
+          animation: fadeMediumFire $duration ease-in $delay+$duration 1 normal forwards;
         }
       }
 
       &--small {
         .animation-out & {
-          animation: fadeSmallFire $duration ease-in $duration 1 normal forwards;
+          animation: fadeSmallFire $duration ease-in $delay 1 normal forwards;
         }
       }
     }

@@ -47,13 +47,13 @@ $radius-base:                 5px !default;
 -------------------------------------------------------------- */
 $duration:                    0.5s;
 $duration-normal:               1s;
-$fast-duration:               0.3s;
+$duration-fast:               0.3s;
 $slide-from-top-duration:     1.5s;
 
-$delay:                       $duration-normal + $fast-duration;
+$delay:                       $duration-normal + $duration-fast;
 $delay-end:                   $delay*3;
 $images-delay:                2.2s;
-$animation-in-end:            $slide-from-top-duration + $images-delay + $fast-duration;
+$animation-in-end:            $slide-from-top-duration + $images-delay + $duration-fast;
 
 $cubic-brazier:               cubic-bezier(.500, .250, .310, .955);
 $cubic-ease-in:        cubic-bezier(0.55, 0.055, 0.675, 0.19);
