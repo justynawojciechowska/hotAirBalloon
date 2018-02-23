@@ -51,12 +51,16 @@
   }
 
   &__desc {
-    width: 85%;
+    width: 90%;
     margin-bottom: 40px;
+    line-height: 2.8rem;
     position: relative;
     opacity: 0;
+    max-height: 8.4rem;
+    overflow: hidden;
 
     @media #{$media-lg-xl}{
+      width: 80%;
       margin-bottom: 60px;
     }
 

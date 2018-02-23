@@ -5,8 +5,47 @@
   align-self: center;
   width: 0;
   max-width: 100%;
-  height: 90vh;
-  min-height: 650px;
+  height: 650px;
+
+  @media #{$media-lg}{
+    height: 90vh;
+    min-height: 700px;
+  }
+
+  @media #{$media-lg-xl}{
+    height: 955px;
+  }
+
+  &.animation-start {
+    animation: $duration-normal $cubic-brazier 0s 1 normal forwards widthAnimation;
+
+    &:after{
+      animation: $duration-normal $cubic-brazier 0s 1 normal forwards fadeInWidthAnimation;
+    }
+    &:before {
+      animation: $duration ease-in $delay 1 normal forwards show;
+    }
+  }
+
+  &:before{
+    position: absolute;
+    content: '';
+    width: calc((45% / 2) + 5%); //half of balloon background + right margin
+    height: 100%;
+    right: -2px;
+    top: 0;
+    border-top-right-radius: $radius-base;
+    border-bottom-right-radius: $radius-base;
+    opacity: 0;
+    z-index: 0;
+    @include gradient($bay-blue, $cerulean-blue);
+
+    .animation-ended & {
+      opacity: 1;
+      right: 0;
+      animation: $duration-fast ease-in $delay-end 1 normal forwards fadeOutMoveLeft;
+    }
+  }
 
   &:after{
     position: absolute;
@@ -16,28 +55,15 @@
     width: 100%;
     height: 100%;
     border-radius: $radius-base;
+    opacity: 0;
     z-index: -1;
     @include gradient($athens-gray, #fff);
 
-
     .animation-ended & {
       width: 100%;
+      opacity: 1;
       animation: $duration linear $delay-end 1 normal forwards fadeOutWidthTransform;
     }
-  }
-
-  @media #{$media-lg}{
-    height: 90vh;
-    min-height: 700px; //set min-height to prevent small height on resize window
-    max-height: 955px;
-  }
-
-  @media #{$media-lg-xl}{
-    height: 955px;
-  }
-
-  &.animation-start {
-    animation: $duration-normal $cubic-brazier 0s 1 normal forwards widthAnimation;
   }
 
   &__nav {
@@ -61,7 +87,7 @@
   &__article {
     position: relative;
     width: calc(70% - 80px);
-    margin: 70px 40px;
+    margin: 70px 25px;
     opacity: 0;
 
     @media #{$media-lg}{
@@ -101,32 +127,6 @@
 
   &__aside {
     opacity: 1;
-    z-index: 1;
-
-    &:after{
-      position: absolute;
-      content: '';
-      width: calc((45% / 2) + 5%); //half of balloon background + right margin
-      height: 100%;
-      right: -2px;
-      top: 0;
-      border-top-right-radius: $radius-base;
-      border-bottom-right-radius: $radius-base;
-      opacity: 0;
-      z-index: -1;
-      @include gradient($bay-blue, $cerulean-blue);
-
-
-      .animation-start & {
-        animation: $duration ease-in $delay 1 normal forwards show;
-      }
-
-      .animation-ended & {
-        opacity: 1;
-        right: 0;
-        animation: $duration-fast ease-in $delay-end 1 normal forwards fadeOutMoveLeft;
-      }
-    }
   }
 }
 

@@ -10,7 +10,7 @@
   @include background-2x('./../../assets/images/stars', 'png', 100%, 100%, center bottom, no-repeat);
 
   .animation-start & {
-    animation: $duration $cubic-brazier $duration-normal 1 normal forwards slideFromLeft;
+    animation: $duration $cubic-brazier $duration-normal 1 normal forwards fadeFromLeft;
   }
 
   .animation-ended & {
@@ -57,7 +57,7 @@
       .animation-ended & {
         opacity: 1;
         margin-bottom: -20px;
-        animation: $duration ease-in $delay-end 1 normal forwards fadeOutToTop;
+        animation: $duration ease-in $delay-end 1 normal forwards smoothfadeOutToTop;
       }
 
       &-left {
@@ -87,7 +87,7 @@
     height: 100%;
 
     .animation-out & {
-      animation: 4.5s $cubic-ease-in ($delay+ ($duration*4)) 1 normal forwards slideOutToTop;
+      animation: 4.5s $cubic-ease-in ($delay+ ($duration*4)) 1 normal forwards fadeOutToTop;
     }
   }
 
@@ -100,11 +100,8 @@
     transform: translateX(-50%);
     z-index: 9;
 
-    @media #{$media-lg}{
-      bottom: 35%;
-    }
     @media #{$media-lg-xl}{
-      bottom: 31%;
+      bottom: 30%;
     }
 
     &-img {
