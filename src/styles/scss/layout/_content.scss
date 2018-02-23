@@ -32,7 +32,7 @@
     content: '';
     width: calc((45% / 2) + 5%); //half of balloon background + right margin
     height: 100%;
-    right: -2px;
+    right: 0;
     top: 0;
     border-top-right-radius: $radius-base;
     border-bottom-right-radius: $radius-base;
@@ -43,7 +43,7 @@
     .animation-ended & {
       opacity: 1;
       right: 0;
-      animation: $duration-fast ease-in $delay-end 1 normal forwards fadeOutMoveLeft;
+      animation: $duration-fast ease-in $delay-end 1 normal forwards fadeOutToLeftWidthTransform;
     }
   }
 

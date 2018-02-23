@@ -51,6 +51,8 @@ class Ballon extends React.Component {
                 <img src={cloud} alt="" className="balloon__img balloon__img--cloud balloon__img--cloud-left"/>
                 <img src={cloud} alt="" className="balloon__img balloon__img--cloud balloon__img--cloud-right"/>
                 <img src={cloud} alt="" className="balloon__img balloon__img--cloud balloon__img--cloud-behind"/>
+
+                <div className="balloon__bckg-img"></div> {/*separate div with background for proper animation*/}
             </div>
         )
     }

@@ -36,6 +36,12 @@
 -------------------------------------------------------------- */
 /* Fade in
 -------------------------------------------------------------- */
+@keyframes show {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 @keyframes fadeFromTop {
   0% {
     opacity: 0;
@@ -80,8 +86,22 @@
     opacity: 1;
     margin-right: 0; } }
 
-/* Fading out
+@keyframes fadeInWidthAnimation {
+  0% {
+    opacity: 0;
+    width: 0; }
+  100% {
+    opacity: 1;
+    width: 100%; } }
+
+/* Fade out
 -------------------------------------------------------------- */
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 @keyframes fadeOutToTop {
   0% {
     bottom: 0;
@@ -110,18 +130,6 @@
     opacity: 0;
     left: 100%; } }
 
-@keyframes moveDown {
-  0% {
-    margin-bottom: 0; }
-  100% {
-    margin-bottom: -20px; } }
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
 @keyframes fadeOutWidthTransform {
   0% {
     opacity: 1; }
@@ -132,33 +140,35 @@
     opacity: 0;
     width: 0; } }
 
-@keyframes fadeOutMoveLeft {
+@keyframes fadeOutToLeft {
   0% {
-    opacity: 1;
-    right: 0; }
+    opacity: 1; }
+  50% {
+    opacity: 0.3; }
+  100% {
+    opacity: 0;
+    right: 100%; } }
+
+@keyframes fadeOutToLeftWidthTransform {
+  0% {
+    opacity: 1; }
   100% {
     opacity: 0;
     right: 60%;
     width: 0; } }
 
-@keyframes show {
+/* Fade out
+-------------------------------------------------------------- */
+@keyframes moveDown {
   0% {
-    opacity: 0; }
+    margin-bottom: 0; }
   100% {
-    opacity: 1; } }
+    margin-bottom: -20px; } }
 
 @keyframes widthAnimation {
   0% {
     width: 0; }
   100% {
-    width: 100%; } }
-
-@keyframes fadeInWidthAnimation {
-  0% {
-    opacity: 0;
-    width: 0; }
-  100% {
-    opacity: 1;
     width: 100%; } }
 
 /* Fire animation
@@ -643,7 +653,7 @@ a {
     content: '';
     width: calc((45% / 2) + 5%);
     height: 100%;
-    right: -2px;
+    right: 0;
     top: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -656,7 +666,7 @@ a {
     .animation-ended .main-content:before {
       opacity: 1;
       right: 0;
-      animation: 0.3s ease-in 3.9s 1 normal forwards fadeOutMoveLeft; }
+      animation: 0.3s ease-in 3.9s 1 normal forwards fadeOutToLeftWidthTransform; }
   .main-content:after {
     position: absolute;
     content: '';
@@ -843,20 +853,29 @@ a {
   height: 80%;
   width: 45%;
   opacity: 0;
-  transform: translateY(-50%);
-  background-image: linear-gradient(181deg, #00000a, #060440 74%, #010037);
-  background-image: url("./../../assets/images/stars.png");
-  background-size: 100% 100%;
-  background-position: center bottom;
-  background-repeat: no-repeat; }
-  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-    .balloon {
-      background-image: url("./../../assets/images/stars@2x.png"); } }
+  transform: translateY(-50%); }
   .animation-start .balloon {
     animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeft; }
-  .animation-ended .balloon {
-    opacity: 1;
-    animation: 0.5s ease-in 3.9s 1 normal forwards fadeOutToTop; }
+  .balloon__bckg-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0;
+    background-image: url("./../../assets/images/stars.png");
+    background-size: 100% 100%;
+    background-position: center bottom;
+    background-repeat: no-repeat; }
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      .balloon__bckg-img {
+        background-image: url("./../../assets/images/stars@2x.png"); } }
+    .animation-start .balloon__bckg-img {
+      animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeft; }
+    .animation-ended .balloon__bckg-img {
+      opacity: 1;
+      animation: 0.5s ease-in 3.9s 1 normal forwards fadeOutToLeft; }
   .balloon__img {
     position: absolute;
     opacity: 0; }

@@ -6,16 +6,30 @@
   width: 45%;
   opacity: 0;
   transform: translateY(-50%);
-  background-image: linear-gradient(181deg, #00000a, #060440 74%, #010037);
-  @include background-2x('./../../assets/images/stars', 'png', 100%, 100%, center bottom, no-repeat);
 
   .animation-start & {
     animation: $duration $cubic-brazier $duration-normal 1 normal forwards fadeFromLeft;
   }
 
-  .animation-ended & {
-    opacity: 1;
-    animation: $duration ease-in $delay-end 1 normal forwards fadeOutToTop;
+
+  &__bckg-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0;
+    @include background-2x('./../../assets/images/stars', 'png', 100%, 100%, center bottom, no-repeat);
+
+    .animation-start & {
+      animation: $duration $cubic-brazier $duration-normal 1 normal forwards fadeFromLeft;
+    }
+
+    .animation-ended & {
+      opacity: 1;
+      animation: $duration ease-in $delay-end 1 normal forwards fadeOutToLeft;
+    }
   }
 
   &__img {
