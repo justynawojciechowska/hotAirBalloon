@@ -1,8 +1,11 @@
 .article {
   width: 65%;
-  min-width: 400px;
-  margin: 90px 0 65px;
+  margin: 40px 0 65px;
   overflow: hidden;
+
+  @media #{$media-lg}{
+    margin-top: 8%;
+  }
 
   @media #{$media-lg-xl}{
     margin: 130px 0 80px;
@@ -49,9 +52,13 @@
 
   &__desc {
     width: 85%;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     position: relative;
     opacity: 0;
+
+    @media #{$media-lg}{
+      margin-bottom: 60px;
+    }
 
     .animation-start &{
       animation: $duration ease-in ($delay + $duration) 1 normal forwards smoothFadeFromTopRelative;

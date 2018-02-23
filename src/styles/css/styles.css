@@ -537,8 +537,6 @@ menu {
   box-sizing: border-box; }
 
 body {
-  margin: 0;
-  padding: 0;
   background-color: #020038;
   background-image: url("./../../assets/images/kratki.png");
   background-size: 100% 100%;
@@ -547,6 +545,9 @@ body {
   @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
     body {
       background-image: url("./../../assets/images/kratki@2x.png"); } }
+  @media only screen and (min-width: 992px) {
+    body {
+      overflow-x: hidden; } }
 
 ul {
   padding: 0;
@@ -572,11 +573,15 @@ h1, h2, h3, h4, h5 {
 
 h1 {
   margin: 15px 0 25px;
-  font-size: 55px;
-  font-size: 5.5rem;
+  font-size: 40px;
+  font-size: 4rem;
   line-height: 1.2;
   color: #1d0a47; }
-  @media only screen and (min-width: 1600px) {
+  @media only screen and (min-width: 1200px) {
+    h1 {
+      font-size: 55px;
+      font-size: 5.5rem; } }
+  @media only screen and (min-width: 1800px) {
     h1 {
       font-size: 70px;
       font-size: 7rem; } }
@@ -593,10 +598,10 @@ a {
   display: flex;
   padding: 10px;
   width: 90%;
-  max-width: 100%;
+  min-width: 850px;
   min-height: 100vh;
   margin: 0 auto; }
-  @media only screen and (min-width: 1600px) {
+  @media only screen and (min-width: 1800px) {
     .container {
       width: 1450px; } }
 
@@ -608,19 +613,24 @@ a {
   width: 0;
   max-width: 100%;
   height: 90vh;
-  min-height: 700px;
+  max-height: 650px;
   background: #eeeef4;
   background: -moz-linear-gradient(top, #eeeef4 0%, #fff 100%);
   background: -webkit-linear-gradient(top, #eeeef4 0%, #fff 100%);
   background: linear-gradient(to bottom, #eeeef4 0%, #fff 100%); }
+  @media only screen and (min-width: 1200px) {
+    .main-content {
+      height: 90vh;
+      min-height: 700px;
+      max-height: 955px; } }
+  @media only screen and (min-width: 1800px) {
+    .main-content {
+      height: 955px; } }
   .main-content.animation-start {
     animation: 1s cubic-bezier(0.5, 0.25, 0.31, 0.955) 0s 1 normal forwards widthAnimation; }
   .animation-ended .main-content {
     width: 100%;
     animation: 0.5s linear 3.9s 1 normal forwards fadeOutWidthTransform; }
-  @media only screen and (min-width: 1600px) {
-    .main-content {
-      height: 955px; } }
   .main-content__nav {
     background-color: white;
     width: 80px;
@@ -636,17 +646,20 @@ a {
   .main-content__article {
     position: relative;
     width: calc(70% - 80px);
-    margin: 80px 40px;
+    margin: 70px 40px;
     opacity: 0; }
+    @media only screen and (min-width: 1200px) {
+      .main-content__article {
+        margin: 80px 40px; } }
+    @media only screen and (min-width: 1800px) {
+      .main-content__article {
+        margin: 100px 60px; } }
     .animation-start .main-content__article {
       animation: 0.5s ease-in 1.3s 1 normal forwards show; }
     .animation-ended .main-content__article {
       opacity: 1;
-      overflow: hidden;
+      overflow-x: hidden;
       animation: 0.5s ease-in 3.9s 1 normal forwards fadeOutWidthTransform; }
-    @media only screen and (min-width: 1600px) {
-      .main-content__article {
-        margin: 100px 60px; } }
   .main-content__img {
     position: relative;
     height: 20px; }
@@ -667,10 +680,12 @@ a {
 -------------------------------------------------------------- */
 .article {
   width: 65%;
-  min-width: 400px;
-  margin: 90px 0 65px;
+  margin: 40px 0 65px;
   overflow: hidden; }
-  @media only screen and (min-width: 1600px) {
+  @media only screen and (min-width: 1200px) {
+    .article {
+      margin-top: 8%; } }
+  @media only screen and (min-width: 1800px) {
     .article {
       margin: 130px 0 80px; } }
   .article__header p {
@@ -694,9 +709,12 @@ a {
       animation: 0.5s ease-in 1.3s 1 normal forwards smoothFadeFromTopRelative; }
   .article__desc {
     width: 85%;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     position: relative;
     opacity: 0; }
+    @media only screen and (min-width: 1200px) {
+      .article__desc {
+        margin-bottom: 60px; } }
     .animation-start .article__desc {
       animation: 0.5s ease-in 1.8s 1 normal forwards smoothFadeFromTopRelative; }
 
@@ -739,7 +757,7 @@ a {
       background: -moz-linear-gradient(right, #223bb7 0%, #28277f 100%);
       background: -webkit-linear-gradient(right, #223bb7 0%, #28277f 100%);
       background: linear-gradient(to right, #223bb7 0%, #28277f 100%); }
-    @media only screen and (min-width: 1600px) {
+    @media only screen and (min-width: 1800px) {
       .button--gradient {
         width: 220px;
         height: 60px; } }
@@ -803,10 +821,13 @@ a {
       animation: 0.5s ease-in 3.9s 1 normal forwards fadeOut; }
     .balloon__img--balloon {
       bottom: 10%;
-      width: 75%;
+      width: 370px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2; }
+      @media only screen and (min-width: 1200px) {
+        .balloon__img--balloon {
+          width: 75%; } }
     .animation-out .balloon__img--cloud {
       opacity: 1;
       animation: 1s ease-in 2s 1 normal forwards moveDown; }
@@ -832,15 +853,18 @@ a {
     width: 100%;
     height: 100%; }
     .animation-out .balloon__wrapper {
-      animation: 3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 2.2s 1 normal forwards slideOutToTop; }
+      animation: 2s cubic-bezier(0.55, 0.055, 0.675, 0.19) 2.2s 1 normal forwards slideOutToTop; }
   .balloon__fire {
     position: absolute;
     left: 50%;
-    bottom: 28%;
+    bottom: 33%;
     width: 40px;
     height: 50px;
     transform: translateX(-50%);
     z-index: 9; }
+    @media only screen and (min-width: 1800px) {
+      .balloon__fire {
+        bottom: 31%; } }
     .balloon__fire-img {
       position: absolute;
       bottom: 0;

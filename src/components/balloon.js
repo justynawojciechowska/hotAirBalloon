@@ -7,34 +7,38 @@ import fireSmall from './../assets/images/fire-small.png';
 
 class Ballon extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             balloonAnimationClass: ''
         }
     }
 
-    componentDidMount() {
-        const balloon = this.refs.balloonImg,
-            balloonWrapper = this.refs.balloonWrapper;
+    closeContainerAnimation = (e) => {
+        if (e.target == e.currentTarget) {
+            document.body.classList.add('animation-ended')
+        }
+    };
 
-        balloon.addEventListener('animationend', () => {
+    balloonImgAnimation = (e) => {
+        if(e.animationName == 'fadeFromTop'){
             this.setState({balloonAnimationClass: 'animation-out'})
-        }, false);
+        }
+    };
 
-        balloonWrapper.addEventListener('animationend', (e) => {
-            if (e.target == balloonWrapper) {
-                document.body.classList.add('animation-ended')
-            }
-        }, false);
+    componentWillReceiveProps(props) {
+        if (props.resetAnimation === true) {
+            this.setState({balloonAnimationClass: ''});
+            document.body.classList.remove('animation-ended');
+        }
     }
 
     render() {
         return (
             <div className={`balloon ${this.state.balloonAnimationClass}`}>
-                <div ref="balloonWrapper" className="balloon__wrapper">
-                    <img ref="balloonImg" src={balloonImg} alt=""
+                <div className="balloon__wrapper" onAnimationEnd={this.closeContainerAnimation}>
+                    <img src={balloonImg} alt="" onAnimationEnd={this.balloonImgAnimation}
                          className="balloon__img balloon__img--balloon"/>
 
                     <div className="balloon__fire">

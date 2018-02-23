@@ -6,21 +6,36 @@ import logo from './assets/images/logo.svg'
 
 class App extends Component {
 
-    constructor(){
+    constructor() {
         super();
 
         this.state = {
-            animationClass: ''
+            animationClass: '',
+            resetAnimation: false
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.setState({animationClass: 'animation-start'})
     }
+
+    contentAnimationEnd(e) {
+        const bodyContainsClass = document.body.classList.contains('animation-ended');
+
+        if ((e.target == e.currentTarget) && bodyContainsClass) {
+            setTimeout(()=>{
+                this.setState({resetAnimation: true})
+            }, 2000)
+        }else{
+            this.setState({resetAnimation: false})
+        }
+    }
+
     render() {
         return (
             <div className="container">
-                <div className={`main-content ${this.state.animationClass}`}>
+                <div className={`main-content ${this.state.animationClass}`}
+                     onAnimationEndCapture={this.contentAnimationEnd.bind(this)}>
 
                     <div className="main-content__nav">
                         <Menu></Menu>
@@ -34,7 +49,7 @@ class App extends Component {
                     </div>
 
                     <div className="main-content__aside">
-                        <Ballon></Ballon>
+                        <Ballon resetAnimation={this.state.resetAnimation}></Ballon>
                     </div>
                 </div>
             </div>

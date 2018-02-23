@@ -23,17 +23,21 @@ h1, h2, h3, h4, h5{
 
 h1{
   margin: 15px 0 25px;
-  font-size: 55px;
-  font-size: 5.5rem;
+  font-size: 40px;
+  font-size: 4rem;
   line-height: 1.2;
   color: $dark-violet;
 
+
+  @media #{$media-lg}{
+    font-size: 55px;
+    font-size: 5.5rem;
+  }
 
   @media #{$media-lg-xl}{
     font-size: 70px;
     font-size: 7rem;
   }
-
 }
 
 
