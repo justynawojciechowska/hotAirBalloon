@@ -13,63 +13,62 @@
 @keyframes fadeFromTop {
   0% {
     opacity: 0;
-    margin-bottom: 20px;
+    transform: translateY(-20px);
   }
 
   100% {
     opacity: 1;
-    margin-bottom: 0;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeFromTopCenter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }
 
 @keyframes smoothFadeFromTop {
   0% {
     opacity: 0;
-    margin-bottom: 10px;
+    transform: translateY(-10px);
   }
   60% {
     opacity: 0.7;
   }
   100% {
     opacity: 1;
-    margin-bottom: 0;
-  }
-}
-
-@keyframes fadeFromTopRelative {
-  0% {
-    opacity: 0;
-    top: -25px;
-  }
-  60% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-    top: 0;
-  }
-}
-
-@keyframes smoothFadeFromTopRelative {
-  0% {
-    opacity: 0;
-    top: -10px;
-  }
-  100% {
-    opacity: 1;
-    top: 0;
+    transform: translateY(0);
   }
 }
 
 @keyframes fadeFromLeft {
   0% {
     opacity: 0;
-    margin-right: 10px;
+    transform: translateX(-10px);
   }
 
   100% {
     opacity: 1;
-    margin-right: 0;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeFromLeftCenter {
+  0% {
+    opacity: 0;
+    transform: translate(-10px, -50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%);
   }
 }
 
@@ -85,7 +84,6 @@
   }
 }
 
-
 /* Fade out
 -------------------------------------------------------------- */
 @keyframes fadeOut {
@@ -99,14 +97,14 @@
 
 @keyframes fadeOutToTop {
   0% {
-    bottom: 0;
+    transform: translateY(0);
     opacity: 1;
   }
   95% {
     opacity: 1;
   }
   100% {
-    bottom: 150%;
+    transform: translateY(-150%);
     opacity: 0;
   }
 }
@@ -117,6 +115,7 @@
   }
   100% {
     opacity: 0;
+    transform: translateY(-10px);
     margin-bottom: 10px;
   }
 }
@@ -124,15 +123,15 @@
 @keyframes fadeOutToRight {
   0% {
     opacity: 1;
-    left: 0;
+    transform: translateY(0);
   }
   80% {
     opacity: 0.4;
-    left: 90%;
+    transform: translateX(100%);
   }
   100% {
     opacity: 0;
-    left: 100%;
+    transform: translateX(120%);
   }
 }
 
@@ -154,7 +153,7 @@
   0% {
     opacity: 1;
   }
-  50%{
+  50% {
     opacity: 0.3;
   }
   100% {
@@ -167,10 +166,10 @@
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
-    right: 60%;
-    width: 0;
+    transform: translateX(-100%);
   }
 }
 
@@ -204,7 +203,6 @@
     width: 0;
   }
 }
-
 
 /* Fire animation
 -------------------------------------------------------------- */

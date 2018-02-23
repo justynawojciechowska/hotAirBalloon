@@ -11,7 +11,7 @@
   transform: translateY(-50%);
 
   .animation-start & {
-    animation: $duration $cubic-brazier $duration-normal 1 normal forwards fadeFromLeft;
+    animation: $duration $cubic-brazier $duration-normal 1 normal forwards fadeFromLeftCenter;
   }
 
   /* Balloon background image
@@ -42,15 +42,6 @@
     position: absolute;
     opacity: 0;
 
-    .animation-start & {
-      animation: $slide-from-top-duration ease-in $duration*4 1 normal forwards fadeFromTop;
-    }
-
-    .animation-ended & {
-      opacity: 1;
-      animation: $duration ease-in $delay-end 1 normal forwards fadeOut;
-    }
-
     /* Balloon image
     -------------------------------------------------------------- */
     &--balloon {
@@ -67,11 +58,25 @@
       @media #{$media-lg-xl}{
         width: 75%;
       }
+
+      .animation-start & {
+        animation: $slide-from-top-duration ease-in $duration*4 1 normal forwards fadeFromTopCenter;
+      }
+
+      .animation-ended & {
+        opacity: 1;
+        animation: $duration ease-in $delay-end 1 normal forwards fadeOut;
+      }
     }
 
     /* Cloud images
     -------------------------------------------------------------- */
     &--cloud {
+
+
+      .animation-start & {
+        animation: $slide-from-top-duration ease-in $duration*4 1 normal forwards fadeFromTop;
+      }
 
       .animation-balloon-out & {
         opacity: 1;

@@ -2,6 +2,10 @@ import React from 'react';
 
 class Content extends React.Component {
 
+    readArticleClick = (e) => {
+        this.props.startBalloonAnimation();
+    };
+
     render() {
         return (
             <article className="article">
@@ -19,7 +23,9 @@ class Content extends React.Component {
                     One answear is that Truth pertains to the possibility that the event will occur. If true - it must
                     occur and if false - it cannot occur.
                 </p>
-                <button className="button button--gradient button--icon">
+                <button className="button button--gradient button--icon"
+                        onClick={this.readArticleClick}
+                        disabled={this.props.disabledReadArticleBtn}>
                     <span>Read Article</span>
                     <i className="icon icon-arrow-right"></i>
                 </button>

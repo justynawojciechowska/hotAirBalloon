@@ -43,46 +43,44 @@
 @keyframes fadeFromTop {
   0% {
     opacity: 0;
-    margin-bottom: 20px; }
+    transform: translateY(-20px); }
   100% {
     opacity: 1;
-    margin-bottom: 0; } }
+    transform: translateY(0); } }
+
+@keyframes fadeFromTopCenter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px); }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0); } }
 
 @keyframes smoothFadeFromTop {
   0% {
     opacity: 0;
-    margin-bottom: 10px; }
+    transform: translateY(-10px); }
   60% {
     opacity: 0.7; }
   100% {
     opacity: 1;
-    margin-bottom: 0; } }
-
-@keyframes fadeFromTopRelative {
-  0% {
-    opacity: 0;
-    top: -25px; }
-  60% {
-    opacity: 0.7; }
-  100% {
-    opacity: 1;
-    top: 0; } }
-
-@keyframes smoothFadeFromTopRelative {
-  0% {
-    opacity: 0;
-    top: -10px; }
-  100% {
-    opacity: 1;
-    top: 0; } }
+    transform: translateY(0); } }
 
 @keyframes fadeFromLeft {
   0% {
     opacity: 0;
-    margin-right: 10px; }
+    transform: translateX(-10px); }
   100% {
     opacity: 1;
-    margin-right: 0; } }
+    transform: translateX(0); } }
+
+@keyframes fadeFromLeftCenter {
+  0% {
+    opacity: 0;
+    transform: translate(-10px, -50%); }
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%); } }
 
 @keyframes fadeInWidthAnimation {
   0% {
@@ -102,12 +100,12 @@
 
 @keyframes fadeOutToTop {
   0% {
-    bottom: 0;
+    transform: translateY(0);
     opacity: 1; }
   95% {
     opacity: 1; }
   100% {
-    bottom: 150%;
+    transform: translateY(-150%);
     opacity: 0; } }
 
 @keyframes smoothfadeOutToTop {
@@ -115,18 +113,19 @@
     opacity: 1; }
   100% {
     opacity: 0;
+    transform: translateY(-10px);
     margin-bottom: 10px; } }
 
 @keyframes fadeOutToRight {
   0% {
     opacity: 1;
-    left: 0; }
+    transform: translateY(0); }
   80% {
     opacity: 0.4;
-    left: 90%; }
+    transform: translateX(100%); }
   100% {
     opacity: 0;
-    left: 100%; } }
+    transform: translateX(120%); } }
 
 @keyframes fadeOutWidthTransform {
   0% {
@@ -152,8 +151,7 @@
     opacity: 1; }
   100% {
     opacity: 0;
-    right: 60%;
-    width: 0; } }
+    transform: translateX(-100%); } }
 
 /* Other animations
 -------------------------------------------------------------- */
@@ -669,7 +667,6 @@ a {
     background: linear-gradient(to bottom, #2e2d92 0%, #2642CC 100%); }
     .animation-ended .main-content:before {
       opacity: 1;
-      right: 0;
       animation: 0.3s ease-in 3.9s 1 normal forwards fadeOutToLeftWidthTransform; }
   .main-content:after {
     position: absolute;
@@ -778,7 +775,7 @@ a {
     font-family: "circular-bold";
     opacity: 0; }
     .animation-start .article__subheader {
-      animation: 0.5s ease-in 1.3s 1 normal forwards smoothFadeFromTopRelative; }
+      animation: 0.5s ease-in 1.3s 1 normal forwards smoothFadeFromTop; }
     .animation-ended .article__subheader {
       opacity: 1;
       animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
@@ -795,7 +792,7 @@ a {
         width: 80%;
         margin-bottom: 60px; } }
     .animation-start .article__desc {
-      animation: 0.5s ease-in 1.8s 1 normal forwards smoothFadeFromTopRelative; }
+      animation: 0.5s ease-in 1.8s 1 normal forwards smoothFadeFromTop; }
     .animation-ended .article__desc {
       opacity: 1;
       animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
@@ -845,27 +842,34 @@ a {
     background: -moz-linear-gradient(right, #2642CC 0%, #2e2d92 100%);
     background: -webkit-linear-gradient(right, #2642CC 0%, #2e2d92 100%);
     background: linear-gradient(to right, #2642CC 0%, #2e2d92 100%); }
-    .animation-start .button--gradient {
-      animation: 1.5s ease-in 2.2s 1 normal forwards fadeFromTopRelative; }
-    .animation-ended .button--gradient {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-    .button--gradient:hover {
-      background: #223bb7;
-      background: -moz-linear-gradient(right, #223bb7 0%, #28277f 100%);
-      background: -webkit-linear-gradient(right, #223bb7 0%, #28277f 100%);
-      background: linear-gradient(to right, #223bb7 0%, #28277f 100%); }
     @media only screen and (min-width: 1800px) {
       .button--gradient {
         width: 220px;
         height: 60px; } }
+    .button--gradient:hover span:after {
+      opacity: 0;
+      transform: translateX(120%); }
+    .button--gradient:focus {
+      outline: none; }
+    .button--gradient:disabled {
+      opacity: 0.8;
+      cursor: not-allowed; }
+      .button--gradient:disabled span, .button--gradient:disabled i {
+        color: #b0b3c5; }
+        .button--gradient:disabled span:after, .button--gradient:disabled i:after {
+          opacity: 0;
+          transform: translateX(120%); }
+    .animation-start .button--gradient {
+      animation: 1.5s ease-in 2.2s 1 normal forwards fadeFromTop; }
+    .animation-ended .button--gradient {
+      opacity: 1;
+      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
     .button--gradient span {
       position: relative;
       display: block;
       width: 100%;
       padding: 10px 20px;
-      color: #fff;
-      overflow: hidden; }
+      color: #fff; }
       .button--gradient span:after {
         position: absolute;
         content: '';
@@ -874,9 +878,11 @@ a {
         left: 0;
         top: 0;
         background-color: #1A2B80;
+        overflow: hidden;
+        opacity: 1;
+        transform: translateX(0);
+        transition: all 0.3s ease-in;
         z-index: -1; }
-        .animation-start .button--gradient span:after {
-          animation: 0.5s ease-in 4s 1 normal forwards fadeOutToRight; }
   .button--icon {
     position: relative; }
     .button--icon i {
@@ -907,7 +913,7 @@ a {
   /* Fire images
   -------------------------------------------------------------- */ }
   .animation-start .balloon {
-    animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeft; }
+    animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeftCenter; }
   .balloon__bckg-img {
     position: absolute;
     top: 0;
@@ -935,11 +941,6 @@ a {
     -------------------------------------------------------------- */
     /* Cloud images
     -------------------------------------------------------------- */ }
-    .animation-start .balloon__img {
-      animation: 1.5s ease-in 2s 1 normal forwards fadeFromTop; }
-    .animation-ended .balloon__img {
-      opacity: 1;
-      animation: 0.5s ease-in 3.9s 1 normal forwards fadeOut; }
     .balloon__img--balloon {
       bottom: 10%;
       width: 370px;
@@ -952,6 +953,13 @@ a {
       @media only screen and (min-width: 1800px) {
         .balloon__img--balloon {
           width: 75%; } }
+      .animation-start .balloon__img--balloon {
+        animation: 1.5s ease-in 2s 1 normal forwards fadeFromTopCenter; }
+      .animation-ended .balloon__img--balloon {
+        opacity: 1;
+        animation: 0.5s ease-in 3.9s 1 normal forwards fadeOut; }
+    .animation-start .balloon__img--cloud {
+      animation: 1.5s ease-in 2s 1 normal forwards fadeFromTop; }
     .animation-balloon-out .balloon__img--cloud {
       opacity: 1;
       animation: 1s ease-in 3.3s 1 normal forwards moveDown; }

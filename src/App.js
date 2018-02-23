@@ -11,7 +11,9 @@ class App extends Component {
 
         this.state = {
             animationClass: '',
-            resetAnimation: false
+            startBalloonAnimation: false,
+            resetAnimation: false,
+            disabledReadArticleBtn: false
         }
     }
 
@@ -24,16 +26,33 @@ class App extends Component {
 
         if ((e.target == e.currentTarget) && bodyContainsClass) {
             setTimeout(() => {
-                this.setState({resetAnimation: true})
+                this.setState({
+                    resetAnimation: true,
+                    startBalloonAnimation: false,
+                    disabledReadArticleBtn: false
+                })
             }, 2000)
         } else {
-            this.setState({resetAnimation: false})
+            this.setState({
+                resetAnimation: false
+            })
         }
+    }
+
+    startBalloonAnimation = () => {
+        this.setState({
+            startBalloonAnimation: true,
+            disabledReadArticleBtn: true
+        })
+    };
+
+    cloudAnimation = () => {
+
     }
 
     render() {
         return (
-            <div className="container">
+            <div className="container" onMouseMove={this.cloudAnimation}>
                 <div className={`main-content ${this.state.animationClass}`}
                      onAnimationEndCapture={this.contentAnimationEnd.bind(this)}>
 
@@ -45,11 +64,13 @@ class App extends Component {
                         <div className="main-content__img">
                             <img src={logo} alt="" className="logo"/>
                         </div>
-                        <Content></Content>
+                        <Content disabledReadArticleBtn={this.state.disabledReadArticleBtn}
+                            startBalloonAnimation={this.startBalloonAnimation}></Content>
                     </div>
 
                     <div className="main-content__aside">
-                        <Ballon resetAnimation={this.state.resetAnimation}></Ballon>
+                        <Ballon resetAnimation={this.state.resetAnimation}
+                                startBalloonAnimation={this.state.startBalloonAnimation}></Ballon>
                     </div>
                 </div>
             </div>

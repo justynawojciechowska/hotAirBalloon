@@ -42,7 +42,6 @@
 
     .animation-ended & {
       opacity: 1;
-      right: 0;
       animation: $duration-fast ease-in $delay-end 1 normal forwards fadeOutToLeftWidthTransform;
     }
   }

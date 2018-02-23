@@ -53,7 +53,7 @@
     opacity: 0;
 
     .animation-start & {
-      animation: $duration ease-in $delay 1 normal forwards smoothFadeFromTopRelative;
+      animation: $duration ease-in $delay 1 normal forwards smoothFadeFromTop;
     }
     .animation-ended & {
       opacity: 1;
@@ -77,7 +77,7 @@
       margin-bottom: 60px;
     }
     .animation-start & {
-      animation: $duration ease-in ($delay + $duration) 1 normal forwards smoothFadeFromTopRelative;
+      animation: $duration ease-in ($delay + $duration) 1 normal forwards smoothFadeFromTop;
     }
 
     .animation-ended & {

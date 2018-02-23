@@ -16,29 +16,27 @@ class Ballon extends React.Component {
     }
 
     closeContainerAnimation = (e) => {
-        if (e.target == e.currentTarget) {
+        if (e.target === e.currentTarget) {
             document.body.classList.add('animation-ended')
         }
     };
 
-    balloonImgAnimation = (e) => {
-        if(e.animationName == 'fadeFromTop'){
-            this.setState({balloonAnimationClass: 'animation-balloon-out'})
-        }
-    };
-
     componentWillReceiveProps(props) {
-        if (props.resetAnimation === true) {
+        if (props.resetAnimation) {
             this.setState({balloonAnimationClass: ''});
             document.body.classList.remove('animation-ended');
         }
+        if(props.startBalloonAnimation){
+            this.setState({balloonAnimationClass: 'animation-balloon-out'})
+        }
+        console.log(props)
     }
 
     render() {
         return (
             <div className={`balloon ${this.state.balloonAnimationClass}`}>
                 <div className="balloon__wrapper" onAnimationEnd={this.closeContainerAnimation}>
-                    <img src={balloonImg} alt="" onAnimationEnd={this.balloonImgAnimation}
+                    <img src={balloonImg} alt=""
                          className="balloon__img balloon__img--balloon"/>
 
                     <div className="balloon__fire">
