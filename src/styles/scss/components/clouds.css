@@ -1,0 +1,38 @@
+/* Colors
+-------------------------------------------------------------- */
+/* Typography
+-------------------------------------------------------------- */
+/* Borders
+-------------------------------------------------------------- */
+/* Animations
+-------------------------------------------------------------- */
+/* Breakpoints
+-------------------------------------------------------------- */
+/* Media queries
+-------------------------------------------------------------- */
+/* Cloud images
+-------------------------------------------------------------- */
+.cloud-img {
+  transition: transform 0.4s linear; }
+  .animation-start .cloud-img {
+    animation: 1.5s ease-in 2s 1 normal forwards fadeFromTop; }
+  .animation-balloon-out .cloud-img {
+    opacity: 1;
+    animation: 1s ease-in 2.3s 1 normal forwards moveDown; }
+  .animation-ended .cloud-img {
+    opacity: 1;
+    margin-bottom: -20px;
+    animation: 0.5s ease-in 3.9s 1 normal forwards smoothfadeOutToTop; }
+  .cloud-img--left {
+    left: -25%;
+    bottom: 0;
+    width: 70%; }
+  .cloud-img--right {
+    right: -40%;
+    bottom: -25%;
+    width: 95%; }
+  .cloud-img--behind {
+    bottom: 30%;
+    right: 6%;
+    width: 35%;
+    z-index: 1; }

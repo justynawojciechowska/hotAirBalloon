@@ -97,7 +97,6 @@
 
 @keyframes fadeOutToTop {
   0% {
-    transform: translateY(0);
     opacity: 1;
   }
   95% {
@@ -123,7 +122,6 @@
 @keyframes fadeOutToRight {
   0% {
     opacity: 1;
-    transform: translateY(0);
   }
   80% {
     opacity: 0.4;

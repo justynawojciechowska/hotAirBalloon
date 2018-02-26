@@ -1,0 +1,82 @@
+/* Colors
+-------------------------------------------------------------- */
+/* Typography
+-------------------------------------------------------------- */
+/* Borders
+-------------------------------------------------------------- */
+/* Animations
+-------------------------------------------------------------- */
+/* Breakpoints
+-------------------------------------------------------------- */
+/* Media queries
+-------------------------------------------------------------- */
+/* Gradient
+-------------------------------------------------------------- */
+/* Retina
+-------------------------------------------------------------- */
+/* Article
+-------------------------------------------------------------- */
+.article {
+  width: 65%;
+  margin: 40px 0 65px;
+  overflow: hidden;
+  /* Article header
+  -------------------------------------------------------------- */
+  /* Article subheader
+  -------------------------------------------------------------- */
+  /* Article description
+  -------------------------------------------------------------- */ }
+  @media only screen and (min-width: 1200px) {
+    .article {
+      margin-top: 8%; } }
+  @media only screen and (min-width: 1800px) {
+    .article {
+      margin: 130px 0 80px; } }
+  .article__header p {
+    width: 0;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap; }
+    .animation-start .article__header p:nth-child(1) {
+      animation: widthAnimation 0.5s steps(50, end) 1.3s 1 normal forwards; }
+    .animation-ended .article__header p:nth-child(1) {
+      width: 100%;
+      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
+    .animation-start .article__header p:nth-child(2) {
+      animation: widthAnimation 0.5s steps(50, end) 1.8s 1 normal forwards; }
+    .animation-ended .article__header p:nth-child(2) {
+      width: 100%;
+      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
+    .animation-start .article__header p:nth-child(3) {
+      animation: widthAnimation 0.5s steps(50, end) 2.3s 1 normal forwards; }
+    .animation-ended .article__header p:nth-child(3) {
+      width: 100%;
+      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
+  .article__subheader {
+    position: relative;
+    color: #273ac4;
+    text-transform: uppercase;
+    font-family: "circular-bold";
+    opacity: 0; }
+    .animation-start .article__subheader {
+      animation: 0.5s ease-in 1.3s 1 normal forwards smoothFadeFromTop; }
+    .animation-ended .article__subheader {
+      opacity: 1;
+      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
+  .article__desc {
+    width: 90%;
+    margin-bottom: 40px;
+    line-height: 2.8rem;
+    position: relative;
+    opacity: 0;
+    max-height: 8.4rem;
+    overflow: hidden; }
+    @media only screen and (min-width: 1800px) {
+      .article__desc {
+        width: 80%;
+        margin-bottom: 60px; } }
+    .animation-start .article__desc {
+      animation: 0.5s ease-in 1.8s 1 normal forwards smoothFadeFromTop; }
+    .animation-ended .article__desc {
+      opacity: 1;
+      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }

@@ -1,8 +1,6 @@
 /* Helpers
 -------------------------------------------------------------- */
-/* Colors
--------------------------------------------------------------- */
-/* Typography
+/* Fonts
 -------------------------------------------------------------- */
 @font-face {
   font-family: 'circular-black';
@@ -20,6 +18,10 @@
   font-family: 'circular-medium';
   src: url("./../../assets/fonts/circular-medium.otf"); }
 
+/* Colors
+-------------------------------------------------------------- */
+/* Typography
+-------------------------------------------------------------- */
 /* Borders
 -------------------------------------------------------------- */
 /* Animations
@@ -100,7 +102,6 @@
 
 @keyframes fadeOutToTop {
   0% {
-    transform: translateY(0);
     opacity: 1; }
   95% {
     opacity: 1; }
@@ -118,8 +119,7 @@
 
 @keyframes fadeOutToRight {
   0% {
-    opacity: 1;
-    transform: translateY(0); }
+    opacity: 1; }
   80% {
     opacity: 0.4;
     transform: translateX(100%); }
@@ -730,93 +730,6 @@ a {
 
 /* Components
 -------------------------------------------------------------- */
-/* Article
--------------------------------------------------------------- */
-.article {
-  width: 65%;
-  margin: 40px 0 65px;
-  overflow: hidden;
-  /* Article header
-  -------------------------------------------------------------- */
-  /* Article subheader
-  -------------------------------------------------------------- */
-  /* Article description
-  -------------------------------------------------------------- */ }
-  @media only screen and (min-width: 1200px) {
-    .article {
-      margin-top: 8%; } }
-  @media only screen and (min-width: 1800px) {
-    .article {
-      margin: 130px 0 80px; } }
-  .article__header p {
-    width: 0;
-    margin: 0;
-    overflow: hidden;
-    white-space: nowrap; }
-    .animation-start .article__header p:nth-child(1) {
-      animation: widthAnimation 0.5s steps(50, end) 1.3s 1 normal forwards; }
-    .animation-ended .article__header p:nth-child(1) {
-      width: 100%;
-      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
-    .animation-start .article__header p:nth-child(2) {
-      animation: widthAnimation 0.5s steps(50, end) 1.8s 1 normal forwards; }
-    .animation-ended .article__header p:nth-child(2) {
-      width: 100%;
-      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
-    .animation-start .article__header p:nth-child(3) {
-      animation: widthAnimation 0.5s steps(50, end) 2.3s 1 normal forwards; }
-    .animation-ended .article__header p:nth-child(3) {
-      width: 100%;
-      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
-  .article__subheader {
-    position: relative;
-    color: #273ac4;
-    text-transform: uppercase;
-    font-family: "circular-bold";
-    opacity: 0; }
-    .animation-start .article__subheader {
-      animation: 0.5s ease-in 1.3s 1 normal forwards smoothFadeFromTop; }
-    .animation-ended .article__subheader {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-  .article__desc {
-    width: 90%;
-    margin-bottom: 40px;
-    line-height: 2.8rem;
-    position: relative;
-    opacity: 0;
-    max-height: 8.4rem;
-    overflow: hidden; }
-    @media only screen and (min-width: 1800px) {
-      .article__desc {
-        width: 80%;
-        margin-bottom: 60px; } }
-    .animation-start .article__desc {
-      animation: 0.5s ease-in 1.8s 1 normal forwards smoothFadeFromTop; }
-    .animation-ended .article__desc {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-
-/* Navigation
--------------------------------------------------------------- */
-.navigation {
-  position: relative;
-  height: 100%;
-  padding: 20px 0;
-  /* Navigation hamburger btn
-  -------------------------------------------------------------- */
-  /* Navigation social links
-  -------------------------------------------------------------- */ }
-  .navigation__btn {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 0; }
-  .navigation__social-links {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%); }
-
 /* Button
 -------------------------------------------------------------- */
 .button {
@@ -893,158 +806,3 @@ a {
       font-size: 12px;
       font-size: 1.2rem;
       color: #fff; }
-
-/* Balloon
--------------------------------------------------------------- */
-.balloon {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-  height: 80%;
-  width: 45%;
-  opacity: 0;
-  transform: translateY(-50%);
-  /* Balloon background image
-  -------------------------------------------------------------- */
-  /* Balloon images
-  -------------------------------------------------------------- */
-  /* Wrapper of balloon image and fire images
-  -------------------------------------------------------------- */
-  /* Fire images
-  -------------------------------------------------------------- */ }
-  .animation-start .balloon {
-    animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeftCenter; }
-  .balloon__bckg-img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0;
-    background-image: url("./../../assets/images/stars.png");
-    background-size: 100% 100%;
-    background-position: center bottom;
-    background-repeat: no-repeat; }
-    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-      .balloon__bckg-img {
-        background-image: url("./../../assets/images/stars@2x.png"); } }
-    .animation-start .balloon__bckg-img {
-      animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeft; }
-    .animation-ended .balloon__bckg-img {
-      opacity: 1;
-      animation: 0.5s ease-in 3.9s 1 normal forwards fadeOutToLeft; }
-  .balloon__img {
-    position: absolute;
-    opacity: 0;
-    /* Balloon image
-    -------------------------------------------------------------- */
-    /* Cloud images
-    -------------------------------------------------------------- */ }
-    .balloon__img--balloon {
-      bottom: 10%;
-      width: 370px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2; }
-      @media only screen and (min-width: 1200px) {
-        .balloon__img--balloon {
-          width: 430px; } }
-      @media only screen and (min-width: 1800px) {
-        .balloon__img--balloon {
-          width: 75%; } }
-      .animation-start .balloon__img--balloon {
-        animation: 1.5s ease-in 2s 1 normal forwards fadeFromTopCenter; }
-      .animation-ended .balloon__img--balloon {
-        opacity: 1;
-        animation: 0.5s ease-in 3.9s 1 normal forwards fadeOut; }
-    .animation-start .balloon__img--cloud {
-      animation: 1.5s ease-in 2s 1 normal forwards fadeFromTop; }
-    .animation-balloon-out .balloon__img--cloud {
-      opacity: 1;
-      animation: 1s ease-in 3.3s 1 normal forwards moveDown; }
-    .animation-ended .balloon__img--cloud {
-      opacity: 1;
-      margin-bottom: -20px;
-      animation: 0.5s ease-in 3.9s 1 normal forwards smoothfadeOutToTop; }
-    .balloon__img--cloud-left {
-      left: -25%;
-      bottom: 0;
-      width: 70%; }
-    .balloon__img--cloud-right {
-      right: -40%;
-      bottom: -25%;
-      width: 95%; }
-    .balloon__img--cloud-behind {
-      bottom: 30%;
-      right: 6%;
-      width: 35%;
-      z-index: 1; }
-  .balloon__wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%; }
-    .animation-balloon-out .balloon__wrapper {
-      animation: 4.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 3.3s 1 normal forwards fadeOutToTop; }
-  .balloon__fire {
-    position: absolute;
-    left: 50%;
-    bottom: 33%;
-    width: 40px;
-    height: 50px;
-    transform: translateX(-50%);
-    z-index: 9; }
-    @media only screen and (min-width: 1800px) {
-      .balloon__fire {
-        bottom: 30%; } }
-    .balloon__fire-img {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      height: 0;
-      width: 0;
-      opacity: 0;
-      transform: translateX(-50%); }
-      .animation-balloon-out .balloon__fire-img--big {
-        animation: fadeBigFire 0.5s ease-in 2.3s 1 normal forwards; }
-      .animation-balloon-out .balloon__fire-img--medium {
-        animation: fadeMediumFire 0.5s ease-in 1.8s 1 normal forwards; }
-      .animation-balloon-out .balloon__fire-img--small {
-        animation: fadeSmallFire 0.5s ease-in 1.3s 1 normal forwards; }
-
-/* Social links
--------------------------------------------------------------- */
-.social-links {
-  /* Social links item
-  -------------------------------------------------------------- */ }
-  .social-links__item {
-    margin-bottom: 10px;
-    width: 40px;
-    height: 40px;
-    background-color: #eeeef4;
-    border-radius: 5px;
-    text-align: center;
-    opacity: 0; }
-    .social-links__item:hover {
-      background-color: #6fc1ff; }
-      .social-links__item:hover i {
-        color: white; }
-    .animation-start .social-links__item:nth-child(1) {
-      animation: 0.3s ease-in 1.3s 1 normal forwards show; }
-    .animation-ended .social-links__item:nth-child(1) {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-    .animation-start .social-links__item:nth-child(2) {
-      animation: 0.3s ease-in 1.6s 1 normal forwards show; }
-    .animation-ended .social-links__item:nth-child(2) {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-    .animation-start .social-links__item:nth-child(3) {
-      animation: 0.3s ease-in 1.9s 1 normal forwards show; }
-    .animation-ended .social-links__item:nth-child(3) {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-  .social-links__link {
-    display: block; }
-    .social-links__link i {
-      line-height: 40px; }

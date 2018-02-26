@@ -1,0 +1,41 @@
+@import './../helpers/variables';
+
+/* Cloud images
+-------------------------------------------------------------- */
+.cloud-img {
+  transition: transform 0.4s linear;
+
+  .animation-start & {
+    animation: $slide-from-top-duration ease-in $duration*4 1 normal forwards fadeFromTop;
+  }
+
+  .animation-balloon-out & {
+    opacity: 1;
+    animation: $duration-normal ease-in $balloon-out-delay 1 normal forwards moveDown;
+  }
+
+  .animation-ended & {
+    opacity: 1;
+    margin-bottom: -20px;
+    animation: $duration ease-in $delay-end 1 normal forwards smoothfadeOutToTop;
+  }
+
+  &--left {
+    left: -25%;
+    bottom: 0;
+    width: 70%;
+  }
+
+  &--right {
+    right: -40%;
+    bottom: -25%;
+    width: 95%;
+  }
+
+  &--behind {
+    bottom: 30%;
+    right: 6%;
+    width: 35%;
+    z-index: 1;
+  }
+}

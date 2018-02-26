@@ -1,0 +1,26 @@
+/* Colors
+-------------------------------------------------------------- */
+/* Typography
+-------------------------------------------------------------- */
+/* Borders
+-------------------------------------------------------------- */
+/* Animations
+-------------------------------------------------------------- */
+/* Breakpoints
+-------------------------------------------------------------- */
+/* Media queries
+-------------------------------------------------------------- */
+.flame-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  transform: translateX(-50%); }
+  .animation-balloon-out .flame-img--big {
+    animation: fadeBigFire 0.5s ease-in 1.3s 1 normal forwards; }
+  .animation-balloon-out .flame-img--medium {
+    animation: fadeMediumFire 0.5s ease-in 0.8s 1 normal forwards; }
+  .animation-balloon-out .flame-img--small {
+    animation: fadeSmallFire 0.5s ease-in 0.3s 1 normal forwards; }

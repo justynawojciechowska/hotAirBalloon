@@ -1,0 +1,29 @@
+@import './../helpers/variables';
+
+.flame-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  transform: translateX(-50%);
+
+  &--big {
+    .animation-balloon-out & {
+      animation: fadeBigFire $duration ease-in $fire3-delay 1 normal forwards;
+    }
+  }
+
+  &--medium {
+    .animation-balloon-out & {
+      animation: fadeMediumFire $duration ease-in $fire2-delay 1 normal forwards;
+    }
+  }
+
+  &--small {
+    .animation-balloon-out & {
+      animation: fadeSmallFire $duration ease-in $fire1-delay 1 normal forwards;
+    }
+  }
+}

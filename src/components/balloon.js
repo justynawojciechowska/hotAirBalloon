@@ -4,14 +4,23 @@ import cloud from './../assets/images/cloud.svg';
 import fireBig from './../assets/images/fire-big.png';
 import fireMedium from './../assets/images/fire-medium.png';
 import fireSmall from './../assets/images/fire-small.png';
+import Flame from './flame.js';
+import Cloud from './cloud.js';
+import '../styles/scss/components/balloon.css';
 
-class Ballon extends React.Component {
+class Balloon extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            balloonAnimationClass: ''
+            balloonAnimationClass: '',
+            cloudsPosition: ["left", "right", "behind"],
+            flames: [
+                {src: fireBig, size: 'big'},
+                {src: fireMedium, size: 'medium'},
+                {src: fireSmall, size: 'small'}
+            ]
         }
     }
 
@@ -23,13 +32,12 @@ class Ballon extends React.Component {
 
     componentWillReceiveProps(props) {
         if (props.resetAnimation) {
-            this.setState({balloonAnimationClass: ''});
+            this.setState({balloonAnimationClass: '', moveClouds: {}});
             document.body.classList.remove('animation-ended');
         }
-        if(props.startBalloonAnimation){
-            this.setState({balloonAnimationClass: 'animation-balloon-out'})
+        if (props.startBalloonAnimation) {
+            this.setState({balloonAnimationClass: 'animation-balloon-out', moveClouds: {}})
         }
-        console.log(props)
     }
 
     render() {
@@ -40,20 +48,30 @@ class Ballon extends React.Component {
                          className="balloon__img balloon__img--balloon"/>
 
                     <div className="balloon__fire">
-                        <img src={fireBig} alt="" className="balloon__fire-img balloon__fire-img--big"/>
-                        <img src={fireMedium} alt="" className="balloon__fire-img balloon__fire-img--medium"/>
-                        <img src={fireSmall} alt="" className="balloon__fire-img balloon__fire-img--small"/>
+                        {
+                            this.state.flames.map((flame) => {
+                                return <Flame src={flame.src} size={flame.size}></Flame>
+                            })
+                        }
+
                     </div>
                 </div>
 
-                <img src={cloud} alt="" className="balloon__img balloon__img--cloud balloon__img--cloud-left"/>
-                <img src={cloud} alt="" className="balloon__img balloon__img--cloud balloon__img--cloud-right"/>
-                <img src={cloud} alt="" className="balloon__img balloon__img--cloud balloon__img--cloud-behind"/>
+                <div className="balloon__clouds">
+                    {
+                        this.state.cloudsPosition.map((position) => {
+                            return <Cloud
+                                src={cloud}
+                                position={position}></Cloud>
+                        })
+                    }
+                </div>
 
-                <div className="balloon__bckg-img"></div> {/*separate div with background for proper animation*/}
+                <div className="balloon__bckg-img"></div>
+                {/*separate div with background for proper animation*/}
             </div>
         )
     }
 }
 
-export default Ballon;
+export default Balloon;

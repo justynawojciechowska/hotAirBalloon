@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Ballon from './components/balloon';
+import Balloon from './components/balloon';
 import Content from './components/content';
 import Menu from './components/menu';
 import logo from './assets/images/logo.svg'
@@ -13,7 +13,7 @@ class App extends Component {
             animationClass: '',
             startBalloonAnimation: false,
             resetAnimation: false,
-            disabledReadArticleBtn: false
+            disabledReadArticleBtn: false,
         }
     }
 
@@ -24,12 +24,14 @@ class App extends Component {
     contentAnimationEnd(e) {
         const bodyContainsClass = document.body.classList.contains('animation-ended');
 
-        if ((e.target == e.currentTarget) && bodyContainsClass) {
+        if ((e.target === e.currentTarget) && bodyContainsClass) {
             setTimeout(() => {
                 this.setState({
                     resetAnimation: true,
                     startBalloonAnimation: false,
-                    disabledReadArticleBtn: false
+                    disabledReadArticleBtn: false,
+                    canMoveClouds: false,
+                    moveClouds: {}
                 })
             }, 2000)
         } else {
@@ -42,19 +44,16 @@ class App extends Component {
     startBalloonAnimation = () => {
         this.setState({
             startBalloonAnimation: true,
-            disabledReadArticleBtn: true
+            disabledReadArticleBtn: true,
+            canMoveClouds: false
         })
     };
 
-    cloudAnimation = () => {
-
-    }
-
     render() {
         return (
-            <div className="container" onMouseMove={this.cloudAnimation}>
+            <div className="container">
                 <div className={`main-content ${this.state.animationClass}`}
-                     onAnimationEndCapture={this.contentAnimationEnd.bind(this)}>
+                     onAnimationEnd={this.contentAnimationEnd.bind(this)}>
 
                     <div className="main-content__nav">
                         <Menu></Menu>
@@ -65,12 +64,13 @@ class App extends Component {
                             <img src={logo} alt="" className="logo"/>
                         </div>
                         <Content disabledReadArticleBtn={this.state.disabledReadArticleBtn}
-                            startBalloonAnimation={this.startBalloonAnimation}></Content>
+                                 startBalloonAnimation={this.startBalloonAnimation}></Content>
                     </div>
 
                     <div className="main-content__aside">
-                        <Ballon resetAnimation={this.state.resetAnimation}
-                                startBalloonAnimation={this.state.startBalloonAnimation}></Ballon>
+                        <Balloon
+                            resetAnimation={this.state.resetAnimation}
+                            startBalloonAnimation={this.state.startBalloonAnimation}></Balloon>
                     </div>
                 </div>
             </div>

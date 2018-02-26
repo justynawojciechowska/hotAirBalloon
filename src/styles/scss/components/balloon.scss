@@ -1,3 +1,5 @@
+@import './../helpers/variables';
+@import './../helpers/mixins';
 
 /* Balloon
 -------------------------------------------------------------- */
@@ -24,7 +26,7 @@
     height: 100%;
     z-index: -1;
     opacity: 0;
-    @include background-2x('./../../assets/images/stars', 'png', 100%, 100%, center bottom, no-repeat);
+    @include background-2x('./../../../assets/images/stars', 'png', 100%, 100%, center bottom, no-repeat);
 
     .animation-start & {
       animation: $duration $cubic-brazier $duration-normal 1 normal forwards fadeFromLeft;
@@ -68,45 +70,14 @@
         animation: $duration ease-in $delay-end 1 normal forwards fadeOut;
       }
     }
+  }
 
-    /* Cloud images
-    -------------------------------------------------------------- */
-    &--cloud {
-
-
-      .animation-start & {
-        animation: $slide-from-top-duration ease-in $duration*4 1 normal forwards fadeFromTop;
-      }
-
-      .animation-balloon-out & {
-        opacity: 1;
-        animation: $duration-normal ease-in $balloon-out-delay 1 normal forwards moveDown;
-      }
-
-      .animation-ended & {
-        opacity: 1;
-        margin-bottom: -20px;
-        animation: $duration ease-in $delay-end 1 normal forwards smoothfadeOutToTop;
-      }
-
-      &-left {
-        left: -25%;
-        bottom: 0;
-        width: 70%;
-      }
-
-      &-right {
-        right: -40%;
-        bottom: -25%;
-        width: 95%;
-      }
-
-      &-behind {
-        bottom: 30%;
-        right: 6%;
-        width: 35%;
-        z-index: 1;
-      }
+  /* Balloon clouds
+  -------------------------------------------------------------- */
+  &__clouds {
+    img{
+      position: absolute;
+      opacity: 0;
     }
   }
 
@@ -135,34 +106,6 @@
 
     @media #{$media-lg-xl}{
       bottom: 30%;
-    }
-
-    &-img {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      height: 0;
-      width: 0;
-      opacity: 0;
-      transform: translateX(-50%);
-
-      &--big {
-        .animation-balloon-out & {
-          animation: fadeBigFire $duration ease-in $fire3-delay 1 normal forwards;
-        }
-      }
-
-      &--medium {
-        .animation-balloon-out & {
-          animation: fadeMediumFire $duration ease-in $fire2-delay 1 normal forwards;
-        }
-      }
-
-      &--small {
-        .animation-balloon-out & {
-          animation: fadeSmallFire $duration ease-in $fire1-delay 1 normal forwards;
-        }
-      }
     }
   }
 }
