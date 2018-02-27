@@ -644,6 +644,8 @@ a {
     .container {
       width: 1450px; } }
 
+/* Main content
+-------------------------------------------------------------- */
 .main-content {
   position: relative;
   display: flex;

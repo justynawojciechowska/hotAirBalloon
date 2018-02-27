@@ -53,8 +53,14 @@
     position: relative;
     color: #273ac4;
     text-transform: uppercase;
-    font-family: "circular-bold";
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-family: "circular-bold", "Arial", sans-serif;
     opacity: 0; }
+    @media only screen and (min-width: 1800px) {
+      .article__subheader {
+        font-size: 16px;
+        font-size: 1.6rem; } }
     .article__subheader--animation-in {
       animation: 0.5s ease-in 1.3s 1 normal forwards smoothFadeFromTop; }
     .article__subheader--animation-out {
