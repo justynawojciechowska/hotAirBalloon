@@ -4,31 +4,35 @@ import Balloon from './balloon';
 import Content from './content';
 import Menu from './menu';
 import logo from './../assets/images/logo.svg'
-import classnames from "classnames";
+import classNames from "classnames";
 
 function MainContent(props) {
 
+    const animationReset = props.animationState === 'ANIMATION_RESET',
+        animationIn = props.animationState === 'ANIMATION_START',
+        animationOut = props.animationState === 'ANIMATION_GO_TO';
+
     return (
-        <div className={classnames('main-content', {
-            'main-content--animation-in': props.animationState === 'ANIMATION_START',
-            'main-content--animation-out': props.animationState === 'ANIMATION_GO_TO',
-            'main-content--animation-reset': props.animationState === 'ANIMATION_RESET',
+        <div className={classNames('main-content', {
+            'main-content--animation-in': animationIn,
+            'main-content--animation-out': animationOut,
+            'main-content--animation-reset': animationReset,
         })}>
 
             <Menu containerClassName="main-content__nav" {...props} />
 
-            <div className={classnames('main-content__article', {
-                'main-content__article--animation-in': props.animationState === 'ANIMATION_START',
-                'main-content__article--animation-out': props.animationState === 'ANIMATION_GO_TO',
-                'main-content__article--animation-reset': props.animationState === 'ANIMATION_RESET',
+            <div className={classNames('main-content__article', {
+                'main-content__article--animation-in': animationIn,
+                'main-content__article--animation-out': animationOut,
+                'main-content__article--animation-reset': animationReset,
             })}>
 
                 <div className="main-content__img">
                     <img src={logo} alt=""
-                         className={classnames('logo', {
-                             'logo--animation-in': props.animationState === 'ANIMATION_START',
-                             'logo--animation-out': props.animationState === 'ANIMATION_GO_TO',
-                             'logo--animation-reset': props.animationState === 'ANIMATION_RESET',
+                         className={classNames('logo', {
+                             'logo--animation-in': animationIn,
+                             'logo--animation-out': animationOut,
+                             'logo--animation-reset': animationReset,
                          })}
                     />
                 </div>
@@ -43,8 +47,7 @@ function MainContent(props) {
 }
 
 MainContent.propTypes = {
-    animationState: PropTypes.oneOf(['ANIMATION_START', 'ANIMATION_GO_TO', 'ANIMATION_RESET']),
-    setAnimationState: PropTypes.func.isRequired
+    animationState: PropTypes.oneOf(['ANIMATION_START', 'ANIMATION_GO_TO', 'ANIMATION_RESET'])
 }
 
 export default MainContent;

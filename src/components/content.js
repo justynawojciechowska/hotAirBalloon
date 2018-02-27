@@ -1,12 +1,13 @@
 import React from 'react';
 import '../styles/scss/components/article.css';
-import classnames from "classnames";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 
 
 class Content extends React.Component {
     static propTypes = {
         animationState: PropTypes.oneOf(['ANIMATION_START', 'ANIMATION_GO_TO', 'ANIMATION_RESET']),
+        setAnimationState: PropTypes.func.isRequired
     };
 
     readArticleClick = (e) => {
@@ -14,20 +15,24 @@ class Content extends React.Component {
     };
 
     render() {
+        const animationReset = this.props.animationState === 'ANIMATION_RESET',
+            animationIn = this.props.animationState === 'ANIMATION_START',
+            animationOut = this.props.animationState === 'ANIMATION_GO_TO';
+
         return (
             <article className="article">
-                <p className={classnames('article__subheader', {
-                    'article__subheader--animation-in': this.props.animationState === 'ANIMATION_START',
-                    'article__subheader--animation-out': this.props.animationState === 'ANIMATION_GO_TO',
-                    'article__subheader--animation-reset': this.props.animationState === 'ANIMATION_RESET',
+                <p className={classNames('article__subheader', {
+                    'article__subheader--animation-in': animationIn,
+                    'article__subheader--animation-out': animationOut,
+                    'article__subheader--animation-reset': animationReset,
                 })}>
                     Product design
                 </p>
 
-                <div className={classnames('article__header', {
-                    'article__header--animation-in': this.props.animationState === 'ANIMATION_START',
-                    'article__header--animation-out': this.props.animationState === 'ANIMATION_GO_TO',
-                    'article__header--animation-reset': this.props.animationState === 'ANIMATION_RESET',
+                <div className={classNames('article__header', {
+                    'article__header--animation-in': animationIn,
+                    'article__header--animation-out': animationOut,
+                    'article__header--animation-reset': animationReset,
                 })}>
                     <h1>
                         <p>Hot Air Balloon</p>
@@ -36,18 +41,18 @@ class Content extends React.Component {
                     </h1>
                 </div>
 
-                <p className={classnames('article__desc', {
-                    'article__desc--animation-in': this.props.animationState === 'ANIMATION_START',
-                    'article__desc--animation-out': this.props.animationState === 'ANIMATION_GO_TO',
-                    'article__desc--animation-reset': this.props.animationState === 'ANIMATION_RESET',
+                <p className={classNames('article__desc', {
+                    'article__desc--animation-in': animationIn,
+                    'article__desc--animation-out': animationOut,
+                    'article__desc--animation-reset': animationReset,
                 })}>
                     One answear is that Truth pertains to the possibility that the event will occur. If true - it must
                     occur and if false - it cannot occur.
                 </p>
-                <button className={classnames('button button--gradient button--icon', {
-                    'button--animation-in': this.props.animationState === 'ANIMATION_START',
-                    'button--animation-out': this.props.animationState === 'ANIMATION_GO_TO',
-                    'button--animation-reset': this.props.animationState === 'ANIMATION_RESET',
+                <button className={classNames('button button--gradient button--icon', {
+                    'button--animation-in': animationIn,
+                    'button--animation-out': animationOut,
+                    'button--animation-reset': animationReset,
                 })}
 
                         onClick={this.readArticleClick}

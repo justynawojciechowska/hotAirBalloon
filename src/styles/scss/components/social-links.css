@@ -34,10 +34,14 @@
     border-radius: 5px;
     text-align: center;
     opacity: 0; }
-    .social-links__item:hover {
+    .social-links__item:hover i {
+      color: white; }
+    .social-links__item--facebook:hover {
+      background-color: #3b5998; }
+    .social-links__item--twitter:hover {
       background-color: #6fc1ff; }
-      .social-links__item:hover i {
-        color: white; }
+    .social-links__item--dribble:hover {
+      background-color: #ea4c89; }
   .social-links__link {
     display: block; }
     .social-links__link i {

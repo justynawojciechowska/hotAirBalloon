@@ -13,9 +13,12 @@ class CloudsContainer extends Component {
     };
 
     containerNode = null;
+    containerPosition = null;
 
     componentDidMount() {
         this.containerNode = document.querySelector(this.props.containerSelector);
+
+        this.containerPosition = this.containerNode.getBoundingClientRect();
 
         this.containerNode.addEventListener('mousemove', this.onMouseMove, false);
     }
@@ -27,14 +30,19 @@ class CloudsContainer extends Component {
     }
 
     onMouseMove = (e) => {
+
+
         const middleY = this.containerNode.offsetHeight / 2,
-            middleX = this.containerNode.offsetWidth / 2;
+            middleX = this.containerNode.offsetWidth / 2,
+            mouseX = (e.clientX - this.containerPosition.x),
+            mouseY = (e.clientY - this.containerPosition.y);
+
 
         if (this.props.animationState === 'ANIMATION_START') {
             this.setState(
                 {
-                    facX: ((e.clientX - middleX) / 100),
-                    facY: ((e.clientY - middleY) / 100)
+                    facX: (mouseX - middleX)/middleX,
+                    facY: (mouseY - middleY)/middleY
                 })
         }
     }

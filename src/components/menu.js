@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 import React from 'react';
 import '../styles/scss/components/navigation.css';
 import SocialLinks from './social-links';
-import classnames from "classnames";
+import classNames from "classnames";
 
 function Menu(props) {
     return (
-        <div className={classnames(props.containerClassName, {
+        <div className={classNames(props.containerClassName, {
             [`${props.containerClassName}--animation-in`]: props.animationState === 'ANIMATION_START',
             [`${props.containerClassName}--animation-out`]: props.animationState === 'ANIMATION_GO_TO',
             [`${props.containerClassName}--animation-reset`]: props.animationState === 'ANIMATION_RESET'

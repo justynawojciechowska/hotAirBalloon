@@ -44,10 +44,26 @@
     opacity: 0;
 
     &:hover {
-      background-color: $mailbu;
-
       i {
         color: white;
+      }
+    }
+
+    &--facebook {
+      &:hover {
+        background-color: $chambray;
+      }
+    }
+
+    &--twitter {
+      &:hover {
+        background-color: $mailbu;
+      }
+    }
+
+    &--dribble {
+      &:hover {
+        background-color: $rose;
       }
     }
   }
