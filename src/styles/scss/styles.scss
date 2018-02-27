@@ -1,5 +1,6 @@
 /* Helpers
 -------------------------------------------------------------- */
+@import 'helpers/font';
 @import 'helpers/variables';
 @import 'helpers/mixins';
 @import 'helpers/animations';
@@ -18,8 +19,4 @@
 
 /* Components
 -------------------------------------------------------------- */
-@import 'components/article';
-@import 'components/navigation';
 @import 'components/buttons';
-@import 'components/balloon';
-@import 'components/social-links';

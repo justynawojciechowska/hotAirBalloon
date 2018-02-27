@@ -1,33 +1,33 @@
+import PropTypes from 'prop-types'
 import React from 'react';
+import '../styles/scss/components/navigation.css';
+import SocialLinks from './social-links';
+import classnames from "classnames";
 
-class Menu extends React.Component {
-    render() {
-        return (
+function Menu(props) {
+    return (
+        <div className={classnames(props.containerClassName, {
+            [`${props.containerClassName}--animation-in`]: props.animationState === 'ANIMATION_START',
+            [`${props.containerClassName}--animation-out`]: props.animationState === 'ANIMATION_GO_TO',
+            [`${props.containerClassName}--animation-reset`]: props.animationState === 'ANIMATION_RESET'
+        })}>
             <nav className="navigation">
                 <button className="button navigation__btn">
                     <i className="icon icon-menu"></i>
                 </button>
 
-                <ul className="social-links navigation__social-links">
-                    <li className="social-links__item">
-                        <a className="social-links__link" href="https://www.facebook.com" target="_blank">
-                            <i className="icon icon-facebook"></i>
-                        </a>
-                    </li>
-                    <li className="social-links__item">
-                        <a  className="social-links__link" href="https://www.twitter.com" target="_blank">
-                            <i className="icon icon-twitter"></i>
-                        </a>
-                    </li>
-                    <li className="social-links__item">
-                        <a className="social-links__link" href="https://www.dribble.com" target="_blank">
-                            <i className="icon icon-dribble"></i>
-                        </a>
-                    </li>
-                </ul>
+                <div className="navigation__social-links">
+                    <SocialLinks socialLinksClass="navigation__social-links"
+                                 animationState={props.animationState}></SocialLinks>
+                </div>
             </nav>
-        )
-    }
+        </div>
+    )
 }
+
+Menu.propTypes = {
+    animationState: PropTypes.oneOf(['ANIMATION_START', 'ANIMATION_GO_TO', 'ANIMATION_RESET']),
+    containerClassName: PropTypes.string.isRequired
+};
 
 export default Menu;

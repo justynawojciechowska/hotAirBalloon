@@ -1,8 +1,6 @@
 /* Helpers
 -------------------------------------------------------------- */
-/* Colors
--------------------------------------------------------------- */
-/* Typography
+/* Fonts
 -------------------------------------------------------------- */
 @font-face {
   font-family: 'circular-black';
@@ -20,6 +18,10 @@
   font-family: 'circular-medium';
   src: url("./../../assets/fonts/circular-medium.otf"); }
 
+/* Colors
+-------------------------------------------------------------- */
+/* Typography
+-------------------------------------------------------------- */
 /* Borders
 -------------------------------------------------------------- */
 /* Animations
@@ -43,46 +45,44 @@
 @keyframes fadeFromTop {
   0% {
     opacity: 0;
-    margin-bottom: 20px; }
+    transform: translateY(-20px); }
   100% {
     opacity: 1;
-    margin-bottom: 0; } }
+    transform: translateY(0); } }
+
+@keyframes fadeFromTopCenter {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%, -20px); }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0); } }
 
 @keyframes smoothFadeFromTop {
   0% {
     opacity: 0;
-    margin-bottom: 10px; }
+    transform: translateY(-10px); }
   60% {
     opacity: 0.7; }
   100% {
     opacity: 1;
-    margin-bottom: 0; } }
-
-@keyframes fadeFromTopRelative {
-  0% {
-    opacity: 0;
-    top: -25px; }
-  60% {
-    opacity: 0.7; }
-  100% {
-    opacity: 1;
-    top: 0; } }
-
-@keyframes smoothFadeFromTopRelative {
-  0% {
-    opacity: 0;
-    top: -10px; }
-  100% {
-    opacity: 1;
-    top: 0; } }
+    transform: translateY(0); } }
 
 @keyframes fadeFromLeft {
   0% {
     opacity: 0;
-    margin-right: 10px; }
+    transform: translateX(-10px); }
   100% {
     opacity: 1;
-    margin-right: 0; } }
+    transform: translateX(0); } }
+
+@keyframes fadeFromLeftCenter {
+  0% {
+    opacity: 0;
+    transform: translate(-10px, -50%); }
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%); } }
 
 @keyframes fadeInWidthAnimation {
   0% {
@@ -102,12 +102,11 @@
 
 @keyframes fadeOutToTop {
   0% {
-    bottom: 0;
     opacity: 1; }
   95% {
     opacity: 1; }
   100% {
-    bottom: 150%;
+    transform: translate(-50%, -150%);
     opacity: 0; } }
 
 @keyframes smoothfadeOutToTop {
@@ -115,18 +114,17 @@
     opacity: 1; }
   100% {
     opacity: 0;
-    margin-bottom: 10px; } }
+    transform: translateY(-10px); } }
 
 @keyframes fadeOutToRight {
   0% {
-    opacity: 1;
-    left: 0; }
+    opacity: 1; }
   80% {
     opacity: 0.4;
-    left: 90%; }
+    transform: translateX(100%); }
   100% {
     opacity: 0;
-    left: 100%; } }
+    transform: translateX(120%); } }
 
 @keyframes fadeOutWidthTransform {
   0% {
@@ -152,16 +150,15 @@
     opacity: 1; }
   100% {
     opacity: 0;
-    right: 60%;
-    width: 0; } }
+    transform: translateX(-100%); } }
 
 /* Other animations
 -------------------------------------------------------------- */
 @keyframes moveDown {
   0% {
-    margin-bottom: 0; }
+    transform: translateY(0); }
   100% {
-    margin-bottom: -20px; } }
+    transform: translateY(20px); } }
 
 @keyframes widthAnimation {
   0% {
@@ -174,6 +171,14 @@
     width: 100%; }
   100% {
     width: 0; } }
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: translateY(0); }
+  100% {
+    opacity: 1;
+    transform: translateY(-15px); } }
 
 /* Fire animation
 -------------------------------------------------------------- */
@@ -586,12 +591,16 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 26px;
   line-height: 2.6rem;
   font-family: "circular-book", "Arial", sans-serif;
   color: #b0b3c5; }
+  @media only screen and (min-width: 1800px) {
+    body {
+      font-size: 18px;
+      font-size: 1.8rem; } }
 
 /* Headers
 -------------------------------------------------------------- */
@@ -628,6 +637,9 @@ a {
   min-width: 850px;
   min-height: 100vh;
   margin: 0 auto; }
+  @media only screen and (min-width: 1200px) {
+    .container {
+      width: 1220px; } }
   @media only screen and (min-width: 1800px) {
     .container {
       width: 1450px; } }
@@ -642,16 +654,12 @@ a {
   @media only screen and (min-width: 1200px) {
     .main-content {
       height: 90vh;
-      min-height: 700px; } }
+      min-height: 700px;
+      max-height: 800px; } }
   @media only screen and (min-width: 1800px) {
     .main-content {
-      height: 955px; } }
-  .main-content.animation-start {
-    animation: 1s cubic-bezier(0.5, 0.25, 0.31, 0.955) 0s 1 normal forwards widthAnimation; }
-    .main-content.animation-start:after {
-      animation: 1s cubic-bezier(0.5, 0.25, 0.31, 0.955) 0s 1 normal forwards fadeInWidthAnimation; }
-    .main-content.animation-start:before {
-      animation: 0.5s ease-in 1.3s 1 normal forwards show; }
+      height: 955px;
+      max-height: 955px; } }
   .main-content:before {
     position: absolute;
     content: '';
@@ -667,10 +675,6 @@ a {
     background: -moz-linear-gradient(top, #2e2d92 0%, #2642CC 100%);
     background: -webkit-linear-gradient(top, #2e2d92 0%, #2642CC 100%);
     background: linear-gradient(to bottom, #2e2d92 0%, #2642CC 100%); }
-    .animation-ended .main-content:before {
-      opacity: 1;
-      right: 0;
-      animation: 0.3s ease-in 3.9s 1 normal forwards fadeOutToLeftWidthTransform; }
   .main-content:after {
     position: absolute;
     content: '';
@@ -685,10 +689,28 @@ a {
     background: -moz-linear-gradient(top, #eeeef4 0%, #fff 100%);
     background: -webkit-linear-gradient(top, #eeeef4 0%, #fff 100%);
     background: linear-gradient(to bottom, #eeeef4 0%, #fff 100%); }
-    .animation-ended .main-content:after {
+  .main-content--animation-in {
+    animation: 1s cubic-bezier(0.5, 0.25, 0.31, 0.955) 0s 1 normal forwards widthAnimation; }
+    .main-content--animation-in:after {
+      animation: 1s cubic-bezier(0.5, 0.25, 0.31, 0.955) 0s 1 normal forwards fadeInWidthAnimation; }
+    .main-content--animation-in:before {
+      animation: 0.5s ease-in 1.3s 1 normal forwards show; }
+  .main-content--animation-out {
+    width: 100%; }
+    .main-content--animation-out:after {
+      width: 100%;
+      opacity: 1; }
+    .main-content--animation-out:before {
+      opacity: 1; }
+  .main-content--animation-reset {
+    width: 100%; }
+    .main-content--animation-reset:after {
       width: 100%;
       opacity: 1;
       animation: 0.5s linear 3.9s 1 normal forwards fadeOutWidthTransform; }
+    .main-content--animation-reset:before {
+      opacity: 1;
+      animation: 0.3s ease-in 3.9s 1 normal forwards fadeOutToLeftWidthTransform; }
   .main-content__nav {
     background-color: white;
     width: 80px;
@@ -696,9 +718,11 @@ a {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     opacity: 0; }
-    .animation-start .main-content__nav {
+    .main-content__nav--animation-in {
       animation: 0.5s ease-in 1.3s 1 normal forwards show; }
-    .animation-ended .main-content__nav {
+    .main-content__nav--animation-out {
+      opacity: 1; }
+    .main-content__nav--animation-reset {
       opacity: 1;
       animation: 0.5s ease-in 3.9s 1 normal forwards fadeOut; }
   .main-content__article {
@@ -712,9 +736,11 @@ a {
     @media only screen and (min-width: 1800px) {
       .main-content__article {
         margin: 100px 60px; } }
-    .animation-start .main-content__article {
+    .main-content__article--animation-in {
       animation: 0.5s ease-in 1.3s 1 normal forwards show; }
-    .animation-ended .main-content__article {
+    .main-content__article--animation-out {
+      opacity: 1; }
+    .main-content__article--animation-reset {
       opacity: 1;
       overflow-x: hidden;
       animation: 0.5s ease-in 3.9s 1 normal forwards fadeOutWidthTransform; }
@@ -726,110 +752,26 @@ a {
       display: block;
       bottom: 0;
       opacity: 0; }
-      .animation-start .main-content__img .logo {
+      .main-content__img .logo--animation-in {
         animation: 0.3s ease-in 1.3s 1 normal forwards smoothFadeFromTop; }
+      .main-content__img .logo--animation-reset, .main-content__img .logo--animation-out {
+        opacity: 1; }
   .main-content__aside {
     opacity: 1; }
 
 /* Components
 -------------------------------------------------------------- */
-/* Article
--------------------------------------------------------------- */
-.article {
-  width: 65%;
-  margin: 40px 0 65px;
-  overflow: hidden;
-  /* Article header
-  -------------------------------------------------------------- */
-  /* Article subheader
-  -------------------------------------------------------------- */
-  /* Article description
-  -------------------------------------------------------------- */ }
-  @media only screen and (min-width: 1200px) {
-    .article {
-      margin-top: 8%; } }
-  @media only screen and (min-width: 1800px) {
-    .article {
-      margin: 130px 0 80px; } }
-  .article__header p {
-    width: 0;
-    margin: 0;
-    overflow: hidden;
-    white-space: nowrap; }
-    .animation-start .article__header p:nth-child(1) {
-      animation: widthAnimation 0.5s steps(50, end) 1.3s 1 normal forwards; }
-    .animation-ended .article__header p:nth-child(1) {
-      width: 100%;
-      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
-    .animation-start .article__header p:nth-child(2) {
-      animation: widthAnimation 0.5s steps(50, end) 1.8s 1 normal forwards; }
-    .animation-ended .article__header p:nth-child(2) {
-      width: 100%;
-      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
-    .animation-start .article__header p:nth-child(3) {
-      animation: widthAnimation 0.5s steps(50, end) 2.3s 1 normal forwards; }
-    .animation-ended .article__header p:nth-child(3) {
-      width: 100%;
-      animation: 0.5s linear 3.9s 1 normal alternate widthCloseAnimation; }
-  .article__subheader {
-    position: relative;
-    color: #273ac4;
-    text-transform: uppercase;
-    font-family: "circular-bold";
-    opacity: 0; }
-    .animation-start .article__subheader {
-      animation: 0.5s ease-in 1.3s 1 normal forwards smoothFadeFromTopRelative; }
-    .animation-ended .article__subheader {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-  .article__desc {
-    width: 90%;
-    margin-bottom: 40px;
-    line-height: 2.8rem;
-    position: relative;
-    opacity: 0;
-    max-height: 8.4rem;
-    overflow: hidden; }
-    @media only screen and (min-width: 1800px) {
-      .article__desc {
-        width: 80%;
-        margin-bottom: 60px; } }
-    .animation-start .article__desc {
-      animation: 0.5s ease-in 1.8s 1 normal forwards smoothFadeFromTopRelative; }
-    .animation-ended .article__desc {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-
-/* Navigation
--------------------------------------------------------------- */
-.navigation {
-  position: relative;
-  height: 100%;
-  padding: 20px 0;
-  /* Navigation hamburger btn
-  -------------------------------------------------------------- */
-  /* Navigation social links
-  -------------------------------------------------------------- */ }
-  .navigation__btn {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 0; }
-  .navigation__social-links {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%); }
-
 /* Button
 -------------------------------------------------------------- */
 .button {
+  background: none;
   border-radius: 2.5px;
   border: 0;
   font-size: 14px;
   font-size: 1.4rem;
+  font-family: "circular-book", "Arial", sans-serif;
   text-align: left;
   cursor: pointer;
-  background: none;
   /* Button with gradient
   -------------------------------------------------------------- */
   /* Button with icon
@@ -845,27 +787,30 @@ a {
     background: -moz-linear-gradient(right, #2642CC 0%, #2e2d92 100%);
     background: -webkit-linear-gradient(right, #2642CC 0%, #2e2d92 100%);
     background: linear-gradient(to right, #2642CC 0%, #2e2d92 100%); }
-    .animation-start .button--gradient {
-      animation: 1.5s ease-in 2.2s 1 normal forwards fadeFromTopRelative; }
-    .animation-ended .button--gradient {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-    .button--gradient:hover {
-      background: #223bb7;
-      background: -moz-linear-gradient(right, #223bb7 0%, #28277f 100%);
-      background: -webkit-linear-gradient(right, #223bb7 0%, #28277f 100%);
-      background: linear-gradient(to right, #223bb7 0%, #28277f 100%); }
     @media only screen and (min-width: 1800px) {
       .button--gradient {
         width: 220px;
         height: 60px; } }
+    .button--gradient:hover span:after {
+      opacity: 0;
+      transform: translateX(120%); }
+    .button--gradient:focus {
+      outline: none; }
+    .button--gradient:disabled {
+      opacity: 0.8;
+      cursor: not-allowed; }
+      .button--gradient:disabled span, .button--gradient:disabled i {
+        color: #b0b3c5; }
+        .button--gradient:disabled span:after, .button--gradient:disabled i:after {
+          opacity: 0;
+          transform: translateX(120%); }
     .button--gradient span {
       position: relative;
       display: block;
       width: 100%;
-      padding: 10px 20px;
+      padding: 10px;
       color: #fff;
-      overflow: hidden; }
+      z-index: 1; }
       .button--gradient span:after {
         position: absolute;
         content: '';
@@ -874,9 +819,11 @@ a {
         left: 0;
         top: 0;
         background-color: #1A2B80;
+        overflow: hidden;
+        opacity: 1;
+        transform: translateX(0);
+        transition: all 0.3s ease-in;
         z-index: -1; }
-        .animation-start .button--gradient span:after {
-          animation: 0.5s ease-in 4s 1 normal forwards fadeOutToRight; }
   .button--icon {
     position: relative; }
     .button--icon i {
@@ -887,156 +834,10 @@ a {
       font-size: 12px;
       font-size: 1.2rem;
       color: #fff; }
-
-/* Balloon
--------------------------------------------------------------- */
-.balloon {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-  height: 80%;
-  width: 45%;
-  opacity: 0;
-  transform: translateY(-50%);
-  /* Balloon background image
-  -------------------------------------------------------------- */
-  /* Balloon images
-  -------------------------------------------------------------- */
-  /* Wrapper of balloon image and fire images
-  -------------------------------------------------------------- */
-  /* Fire images
-  -------------------------------------------------------------- */ }
-  .animation-start .balloon {
-    animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeft; }
-  .balloon__bckg-img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0;
-    background-image: url("./../../assets/images/stars.png");
-    background-size: 100% 100%;
-    background-position: center bottom;
-    background-repeat: no-repeat; }
-    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-      .balloon__bckg-img {
-        background-image: url("./../../assets/images/stars@2x.png"); } }
-    .animation-start .balloon__bckg-img {
-      animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeft; }
-    .animation-ended .balloon__bckg-img {
-      opacity: 1;
-      animation: 0.5s ease-in 3.9s 1 normal forwards fadeOutToLeft; }
-  .balloon__img {
-    position: absolute;
-    opacity: 0;
-    /* Balloon image
-    -------------------------------------------------------------- */
-    /* Cloud images
-    -------------------------------------------------------------- */ }
-    .animation-start .balloon__img {
-      animation: 1.5s ease-in 2s 1 normal forwards fadeFromTop; }
-    .animation-ended .balloon__img {
-      opacity: 1;
-      animation: 0.5s ease-in 3.9s 1 normal forwards fadeOut; }
-    .balloon__img--balloon {
-      bottom: 10%;
-      width: 370px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2; }
-      @media only screen and (min-width: 1200px) {
-        .balloon__img--balloon {
-          width: 430px; } }
-      @media only screen and (min-width: 1800px) {
-        .balloon__img--balloon {
-          width: 75%; } }
-    .animation-balloon-out .balloon__img--cloud {
-      opacity: 1;
-      animation: 1s ease-in 3.3s 1 normal forwards moveDown; }
-    .animation-ended .balloon__img--cloud {
-      opacity: 1;
-      margin-bottom: -20px;
-      animation: 0.5s ease-in 3.9s 1 normal forwards smoothfadeOutToTop; }
-    .balloon__img--cloud-left {
-      left: -25%;
-      bottom: 0;
-      width: 70%; }
-    .balloon__img--cloud-right {
-      right: -40%;
-      bottom: -25%;
-      width: 95%; }
-    .balloon__img--cloud-behind {
-      bottom: 30%;
-      right: 6%;
-      width: 35%;
-      z-index: 1; }
-  .balloon__wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%; }
-    .animation-balloon-out .balloon__wrapper {
-      animation: 4.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 3.3s 1 normal forwards fadeOutToTop; }
-  .balloon__fire {
-    position: absolute;
-    left: 50%;
-    bottom: 33%;
-    width: 40px;
-    height: 50px;
-    transform: translateX(-50%);
-    z-index: 9; }
-    @media only screen and (min-width: 1800px) {
-      .balloon__fire {
-        bottom: 30%; } }
-    .balloon__fire-img {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      height: 0;
-      width: 0;
-      opacity: 0;
-      transform: translateX(-50%); }
-      .animation-balloon-out .balloon__fire-img--big {
-        animation: fadeBigFire 0.5s ease-in 2.3s 1 normal forwards; }
-      .animation-balloon-out .balloon__fire-img--medium {
-        animation: fadeMediumFire 0.5s ease-in 1.8s 1 normal forwards; }
-      .animation-balloon-out .balloon__fire-img--small {
-        animation: fadeSmallFire 0.5s ease-in 1.3s 1 normal forwards; }
-
-/* Social links
--------------------------------------------------------------- */
-.social-links {
-  /* Social links item
-  -------------------------------------------------------------- */ }
-  .social-links__item {
-    margin-bottom: 10px;
-    width: 40px;
-    height: 40px;
-    background-color: #eeeef4;
-    border-radius: 5px;
-    text-align: center;
-    opacity: 0; }
-    .social-links__item:hover {
-      background-color: #6fc1ff; }
-      .social-links__item:hover i {
-        color: white; }
-    .animation-start .social-links__item:nth-child(1) {
-      animation: 0.3s ease-in 1.3s 1 normal forwards show; }
-    .animation-ended .social-links__item:nth-child(1) {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-    .animation-start .social-links__item:nth-child(2) {
-      animation: 0.3s ease-in 1.6s 1 normal forwards show; }
-    .animation-ended .social-links__item:nth-child(2) {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-    .animation-start .social-links__item:nth-child(3) {
-      animation: 0.3s ease-in 1.9s 1 normal forwards show; }
-    .animation-ended .social-links__item:nth-child(3) {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
-  .social-links__link {
-    display: block; }
-    .social-links__link i {
-      line-height: 40px; }
+  .button--animation-in {
+    animation: 1.5s ease-in 2.2s 1 normal forwards fadeFromTop; }
+  .button--animation-out {
+    opacity: 1; }
+  .button--animation-reset {
+    opacity: 1;
+    animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
