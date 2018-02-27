@@ -3,22 +3,9 @@
 /* Cloud images
 -------------------------------------------------------------- */
 .cloud-img {
-  transition: transform 0.4s linear;
-
-  .animation-start & {
-    animation: $slide-from-top-duration ease-in $duration*4 1 normal forwards fadeFromTop;
-  }
-
-  .animation-balloon-out & {
-    opacity: 1;
-    animation: $duration-normal ease-in $balloon-out-delay 1 normal forwards moveDown;
-  }
-
-  .animation-ended & {
-    opacity: 1;
-    margin-bottom: -20px;
-    animation: $duration ease-in $delay-end 1 normal forwards smoothfadeOutToTop;
-  }
+  position: absolute;
+  transform: translate(0, 0);
+  transition: transform 0.3s linear;
 
   &--left {
     left: -25%;

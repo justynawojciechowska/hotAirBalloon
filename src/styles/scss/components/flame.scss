@@ -10,19 +10,19 @@
   transform: translateX(-50%);
 
   &--big {
-    .animation-balloon-out & {
+    &.flame-img--animation-out {
       animation: fadeBigFire $duration ease-in $fire3-delay 1 normal forwards;
     }
   }
 
   &--medium {
-    .animation-balloon-out & {
+    &.flame-img--animation-out {
       animation: fadeMediumFire $duration ease-in $fire2-delay 1 normal forwards;
     }
   }
 
   &--small {
-    .animation-balloon-out & {
+    &.flame-img--animation-out {
       animation: fadeSmallFire $duration ease-in $fire1-delay 1 normal forwards;
     }
   }

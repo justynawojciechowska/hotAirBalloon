@@ -25,7 +25,7 @@
 @keyframes fadeFromTopCenter {
   0% {
     opacity: 0;
-    transform: translate(-50%, -20px);
+    transform: translateY(-50%, -20px);
   }
 
   100% {
@@ -103,7 +103,7 @@
     opacity: 1;
   }
   100% {
-    transform: translateY(-150%);
+    transform: translate(-50%, -150%);
     opacity: 0;
   }
 }
@@ -115,7 +115,6 @@
   100% {
     opacity: 0;
     transform: translateY(-10px);
-    margin-bottom: 10px;
   }
 }
 
@@ -175,10 +174,10 @@
 -------------------------------------------------------------- */
 @keyframes moveDown {
   0% {
-    margin-bottom: 0;
+    transform: translateY(0);
   }
   100% {
-    margin-bottom: -20px;
+    transform: translateY(20px);
   }
 }
 
@@ -199,6 +198,17 @@
 
   100% {
     width: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: translateY( 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-15px);
   }
 }
 

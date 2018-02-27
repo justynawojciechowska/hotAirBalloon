@@ -19,15 +19,18 @@
   /* Article header
   -------------------------------------------------------------- */
   &__header {
+
     p {
       width: 0;
       margin: 0;
       overflow: hidden;
       white-space: nowrap;
+    }
 
-      @for $item from 1 through 3 {
-        &:nth-child(#{$item}) {
-          .animation-start & {
+    &--animation-in {
+      p {
+        @for $item from 1 through 3 {
+          &:nth-child(#{$item}) {
             @if $item == 1 {
               animation: widthAnimation $duration steps(50, end) $delay 1 normal forwards;
             } @else if $item == 2 {
@@ -36,12 +39,21 @@
               animation: widthAnimation $duration steps(50, end) ($delay + 2*$duration) 1 normal forwards;
             }
           }
-
-          .animation-ended & {
-            width: 100%;
-            animation: $duration linear $delay-end 1 normal alternate widthCloseAnimation;
-          }
         }
+      }
+    }
+
+    &--animation-out {
+      p {
+        opacity: 1;
+        width: 100%;
+      }
+    }
+
+    &--animation-reset {
+      p {
+        width: 100%;
+        animation: $duration linear $delay-end 1 normal forwards widthCloseAnimation;
       }
     }
   }
@@ -55,10 +67,15 @@
     font-family: "circular-bold";
     opacity: 0;
 
-    .animation-start & {
+    &--animation-in {
       animation: $duration ease-in $delay 1 normal forwards smoothFadeFromTop;
     }
-    .animation-ended & {
+
+    &--animation-out {
+      opacity: 1;
+    }
+
+    &--animation-reset {
       opacity: 1;
       animation: $duration linear $delay-end 1 normal forwards fadeOut;
     }
@@ -79,11 +96,16 @@
       width: 80%;
       margin-bottom: 60px;
     }
-    .animation-start & {
+
+    &--animation-in {
       animation: $duration ease-in ($delay + $duration) 1 normal forwards smoothFadeFromTop;
     }
 
-    .animation-ended & {
+    &--animation-out {
+      opacity: 1;
+    }
+
+    &--animation-reset {
       opacity: 1;
       animation: $duration linear $delay-end 1 normal forwards fadeOut;
     }

@@ -7,12 +7,17 @@ html{
 }
 
 body{
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 26px;
   line-height: 2.6rem;
   font-family: $base-family;
   color: $cadet-gray;
+
+  @media #{$media-lg-xl}{
+    font-size: 18px;
+    font-size: 1.8rem;
+  }
 }
 
 /* Headers

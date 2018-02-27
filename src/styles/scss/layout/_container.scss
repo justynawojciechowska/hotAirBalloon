@@ -6,6 +6,10 @@
   min-height: 100vh;
   margin: 0 auto;
 
+  @media #{$media-lg}{
+    width: 1220px;
+  }
+
   @media #{$media-lg-xl}{
     width: 1450px;
   }

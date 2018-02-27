@@ -1,5 +1,6 @@
 
 .main-content {
+  $parent: &;
   position: relative;
   display: flex;
   align-self: center;
@@ -10,24 +11,15 @@
   @media #{$media-lg}{
     height: 90vh;
     min-height: 700px;
+    max-height: 800px;
   }
 
   @media #{$media-lg-xl}{
     height: 955px;
+    max-height: 955px;
   }
 
-  &.animation-start {
-    animation: $duration-normal $cubic-brazier 0s 1 normal forwards widthAnimation;
-
-    &:after{
-      animation: $duration-normal $cubic-brazier 0s 1 normal forwards fadeInWidthAnimation;
-    }
-    &:before {
-      animation: $duration ease-in $delay 1 normal forwards show;
-    }
-  }
-
-  &:before{
+  &:before {
     position: absolute;
     content: '';
     width: calc((45% / 2) + 5%); //half of balloon background + right margin
@@ -39,14 +31,9 @@
     opacity: 0;
     z-index: 0;
     @include gradient($bay-blue, $cerulean-blue);
-
-    .animation-ended & {
-      opacity: 1;
-      animation: $duration-fast ease-in $delay-end 1 normal forwards fadeOutToLeftWidthTransform;
-    }
   }
 
-  &:after{
+  &:after {
     position: absolute;
     content: '';
     left: 0;
@@ -57,11 +44,44 @@
     opacity: 0;
     z-index: -1;
     @include gradient($athens-gray, #fff);
+  }
 
-    .animation-ended & {
+  &--animation-in {
+    animation: $duration-normal $cubic-brazier 0s 1 normal forwards widthAnimation;
+
+    &:after {
+      animation: $duration-normal $cubic-brazier 0s 1 normal forwards fadeInWidthAnimation;
+    }
+    &:before {
+      animation: $duration ease-in $delay 1 normal forwards show;
+    }
+  }
+
+  &--animation-out {
+    width: 100%;
+
+    &:after {
+      width: 100%;
+      opacity: 1;
+    }
+
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  &--animation-reset {
+    width: 100%;
+
+    &:after {
       width: 100%;
       opacity: 1;
       animation: $duration linear $delay-end 1 normal forwards fadeOutWidthTransform;
+    }
+
+    &:before {
+      opacity: 1;
+      animation: $duration-fast ease-in $delay-end 1 normal forwards fadeOutToLeftWidthTransform;
     }
   }
 
@@ -73,11 +93,15 @@
     border-bottom-left-radius: $radius-base;
     opacity: 0;
 
-    .animation-start & {
+    &--animation-in{
       animation: $duration ease-in $delay 1 normal forwards show;
     }
 
-    .animation-ended & {
+    &--animation-out{
+      opacity: 1;
+    }
+
+    &--animation-reset {
       opacity: 1;
       animation: $duration ease-in $delay-end 1 normal forwards fadeOut;
     }
@@ -97,11 +121,15 @@
       margin: 100px 60px;
     }
 
-    .animation-start & {
+    &--animation-in {
       animation: $duration ease-in $delay 1 normal forwards show;
     }
 
-    .animation-ended & {
+    &--animation-out {
+      opacity: 1;
+    }
+
+    &--animation-reset {
       opacity: 1;
       overflow-x: hidden;
       animation: $duration ease-in $delay-end 1 normal forwards fadeOutWidthTransform;
@@ -118,8 +146,13 @@
       bottom: 0;
       opacity: 0;
 
-      .animation-start & {
+      &--animation-in {
         animation: $duration-fast ease-in $delay 1 normal forwards smoothFadeFromTop;
+      }
+
+      &--animation-reset,
+      &--animation-out {
+        opacity: 1;
       }
     }
   }

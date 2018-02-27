@@ -53,7 +53,7 @@
 @keyframes fadeFromTopCenter {
   0% {
     opacity: 0;
-    transform: translate(-50%, -20px); }
+    transform: translateY(-50%, -20px); }
   100% {
     opacity: 1;
     transform: translate(-50%, 0); } }
@@ -106,7 +106,7 @@
   95% {
     opacity: 1; }
   100% {
-    transform: translateY(-150%);
+    transform: translate(-50%, -150%);
     opacity: 0; } }
 
 @keyframes smoothfadeOutToTop {
@@ -114,8 +114,7 @@
     opacity: 1; }
   100% {
     opacity: 0;
-    transform: translateY(-10px);
-    margin-bottom: 10px; } }
+    transform: translateY(-10px); } }
 
 @keyframes fadeOutToRight {
   0% {
@@ -157,9 +156,9 @@
 -------------------------------------------------------------- */
 @keyframes moveDown {
   0% {
-    margin-bottom: 0; }
+    transform: translateY(0); }
   100% {
-    margin-bottom: -20px; } }
+    transform: translateY(20px); } }
 
 @keyframes widthAnimation {
   0% {
@@ -172,6 +171,14 @@
     width: 100%; }
   100% {
     width: 0; } }
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: translateY(0); }
+  100% {
+    opacity: 1;
+    transform: translateY(-15px); } }
 
 /* Fire animation
 -------------------------------------------------------------- */
@@ -584,12 +591,16 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 26px;
   line-height: 2.6rem;
   font-family: "circular-book", "Arial", sans-serif;
   color: #b0b3c5; }
+  @media only screen and (min-width: 1800px) {
+    body {
+      font-size: 18px;
+      font-size: 1.8rem; } }
 
 /* Headers
 -------------------------------------------------------------- */
@@ -626,6 +637,9 @@ a {
   min-width: 850px;
   min-height: 100vh;
   margin: 0 auto; }
+  @media only screen and (min-width: 1200px) {
+    .container {
+      width: 1220px; } }
   @media only screen and (min-width: 1800px) {
     .container {
       width: 1450px; } }
@@ -640,16 +654,12 @@ a {
   @media only screen and (min-width: 1200px) {
     .main-content {
       height: 90vh;
-      min-height: 700px; } }
+      min-height: 700px;
+      max-height: 800px; } }
   @media only screen and (min-width: 1800px) {
     .main-content {
-      height: 955px; } }
-  .main-content.animation-start {
-    animation: 1s cubic-bezier(0.5, 0.25, 0.31, 0.955) 0s 1 normal forwards widthAnimation; }
-    .main-content.animation-start:after {
-      animation: 1s cubic-bezier(0.5, 0.25, 0.31, 0.955) 0s 1 normal forwards fadeInWidthAnimation; }
-    .main-content.animation-start:before {
-      animation: 0.5s ease-in 1.3s 1 normal forwards show; }
+      height: 955px;
+      max-height: 955px; } }
   .main-content:before {
     position: absolute;
     content: '';
@@ -665,9 +675,6 @@ a {
     background: -moz-linear-gradient(top, #2e2d92 0%, #2642CC 100%);
     background: -webkit-linear-gradient(top, #2e2d92 0%, #2642CC 100%);
     background: linear-gradient(to bottom, #2e2d92 0%, #2642CC 100%); }
-    .animation-ended .main-content:before {
-      opacity: 1;
-      animation: 0.3s ease-in 3.9s 1 normal forwards fadeOutToLeftWidthTransform; }
   .main-content:after {
     position: absolute;
     content: '';
@@ -682,10 +689,28 @@ a {
     background: -moz-linear-gradient(top, #eeeef4 0%, #fff 100%);
     background: -webkit-linear-gradient(top, #eeeef4 0%, #fff 100%);
     background: linear-gradient(to bottom, #eeeef4 0%, #fff 100%); }
-    .animation-ended .main-content:after {
+  .main-content--animation-in {
+    animation: 1s cubic-bezier(0.5, 0.25, 0.31, 0.955) 0s 1 normal forwards widthAnimation; }
+    .main-content--animation-in:after {
+      animation: 1s cubic-bezier(0.5, 0.25, 0.31, 0.955) 0s 1 normal forwards fadeInWidthAnimation; }
+    .main-content--animation-in:before {
+      animation: 0.5s ease-in 1.3s 1 normal forwards show; }
+  .main-content--animation-out {
+    width: 100%; }
+    .main-content--animation-out:after {
+      width: 100%;
+      opacity: 1; }
+    .main-content--animation-out:before {
+      opacity: 1; }
+  .main-content--animation-reset {
+    width: 100%; }
+    .main-content--animation-reset:after {
       width: 100%;
       opacity: 1;
       animation: 0.5s linear 3.9s 1 normal forwards fadeOutWidthTransform; }
+    .main-content--animation-reset:before {
+      opacity: 1;
+      animation: 0.3s ease-in 3.9s 1 normal forwards fadeOutToLeftWidthTransform; }
   .main-content__nav {
     background-color: white;
     width: 80px;
@@ -693,9 +718,11 @@ a {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     opacity: 0; }
-    .animation-start .main-content__nav {
+    .main-content__nav--animation-in {
       animation: 0.5s ease-in 1.3s 1 normal forwards show; }
-    .animation-ended .main-content__nav {
+    .main-content__nav--animation-out {
+      opacity: 1; }
+    .main-content__nav--animation-reset {
       opacity: 1;
       animation: 0.5s ease-in 3.9s 1 normal forwards fadeOut; }
   .main-content__article {
@@ -709,9 +736,11 @@ a {
     @media only screen and (min-width: 1800px) {
       .main-content__article {
         margin: 100px 60px; } }
-    .animation-start .main-content__article {
+    .main-content__article--animation-in {
       animation: 0.5s ease-in 1.3s 1 normal forwards show; }
-    .animation-ended .main-content__article {
+    .main-content__article--animation-out {
+      opacity: 1; }
+    .main-content__article--animation-reset {
       opacity: 1;
       overflow-x: hidden;
       animation: 0.5s ease-in 3.9s 1 normal forwards fadeOutWidthTransform; }
@@ -723,8 +752,10 @@ a {
       display: block;
       bottom: 0;
       opacity: 0; }
-      .animation-start .main-content__img .logo {
+      .main-content__img .logo--animation-in {
         animation: 0.3s ease-in 1.3s 1 normal forwards smoothFadeFromTop; }
+      .main-content__img .logo--animation-reset, .main-content__img .logo--animation-out {
+        opacity: 1; }
   .main-content__aside {
     opacity: 1; }
 
@@ -733,13 +764,14 @@ a {
 /* Button
 -------------------------------------------------------------- */
 .button {
+  background: none;
   border-radius: 2.5px;
   border: 0;
   font-size: 14px;
   font-size: 1.4rem;
+  font-family: "circular-book", "Arial", sans-serif;
   text-align: left;
   cursor: pointer;
-  background: none;
   /* Button with gradient
   -------------------------------------------------------------- */
   /* Button with icon
@@ -772,17 +804,13 @@ a {
         .button--gradient:disabled span:after, .button--gradient:disabled i:after {
           opacity: 0;
           transform: translateX(120%); }
-    .animation-start .button--gradient {
-      animation: 1.5s ease-in 2.2s 1 normal forwards fadeFromTop; }
-    .animation-ended .button--gradient {
-      opacity: 1;
-      animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }
     .button--gradient span {
       position: relative;
       display: block;
       width: 100%;
-      padding: 10px 20px;
-      color: #fff; }
+      padding: 10px;
+      color: #fff;
+      z-index: 1; }
       .button--gradient span:after {
         position: absolute;
         content: '';
@@ -806,3 +834,10 @@ a {
       font-size: 12px;
       font-size: 1.2rem;
       color: #fff; }
+  .button--animation-in {
+    animation: 1.5s ease-in 2.2s 1 normal forwards fadeFromTop; }
+  .button--animation-out {
+    opacity: 1; }
+  .button--animation-reset {
+    opacity: 1;
+    animation: 0.5s linear 3.9s 1 normal forwards fadeOut; }

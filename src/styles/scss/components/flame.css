@@ -18,9 +18,9 @@
   width: 0;
   opacity: 0;
   transform: translateX(-50%); }
-  .animation-balloon-out .flame-img--big {
+  .flame-img--big.flame-img--animation-out {
     animation: fadeBigFire 0.5s ease-in 1.3s 1 normal forwards; }
-  .animation-balloon-out .flame-img--medium {
+  .flame-img--medium.flame-img--animation-out {
     animation: fadeMediumFire 0.5s ease-in 0.8s 1 normal forwards; }
-  .animation-balloon-out .flame-img--small {
+  .flame-img--small.flame-img--animation-out {
     animation: fadeSmallFire 0.5s ease-in 0.3s 1 normal forwards; }

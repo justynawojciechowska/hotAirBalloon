@@ -3,6 +3,34 @@
 /* Social links
 -------------------------------------------------------------- */
 .social-links {
+  $parent: &;
+
+  &--animation-in {
+    @for $i from 1 through 3 {
+      #{$parent}__item:nth-child(#{$i}) {
+        @if $i == 1 {
+          animation: $duration-fast ease-in $delay 1 normal forwards show;
+        } @else if $i == 2 {
+          animation: $duration-fast ease-in ($delay + $duration-fast) 1 normal forwards show;
+        } @else {
+          animation: $duration-fast ease-in ($delay + $duration-fast*2) 1 normal forwards show;
+        }
+      }
+    }
+  }
+
+  &--animation-out {
+    #{$parent}__item {
+      opacity: 1;
+    }
+  }
+
+  &--animation-reset {
+    #{$parent}__item {
+      opacity: 1;
+      animation: $duration linear $delay-end 1 normal forwards fadeOut;
+    }
+  }
 
   /* Social links item
   -------------------------------------------------------------- */
@@ -20,25 +48,6 @@
 
       i {
         color: white;
-      }
-    }
-
-    @for $i from 1 through 3 {
-      &:nth-child(#{$i}) {
-        .animation-start & {
-          @if $i == 1 {
-            animation: $duration-fast ease-in $delay 1 normal forwards show;
-          } @else if $i == 2 {
-            animation: $duration-fast ease-in ($delay + $duration-fast) 1 normal forwards show;
-          } @else {
-            animation: $duration-fast ease-in ($delay + $duration-fast*2) 1 normal forwards show;
-          }
-        }
-
-        .animation-ended & {
-          opacity: 1;
-          animation: $duration linear $delay-end 1 normal forwards fadeOut;
-        }
       }
     }
   }

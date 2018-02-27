@@ -28,14 +28,23 @@
   -------------------------------------------------------------- */
   /* Balloon images
   -------------------------------------------------------------- */
-  /* Balloon clouds
-  -------------------------------------------------------------- */
   /* Wrapper of balloon image and fire images
   -------------------------------------------------------------- */
   /* Fire images
   -------------------------------------------------------------- */ }
-  .animation-start .balloon {
+  .balloon--animation-in {
     animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeftCenter; }
+    .balloon--animation-in .balloon__bckg-img {
+      animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeft; }
+  .balloon--animation-out {
+    opacity: 1; }
+    .balloon--animation-out .balloon__bckg-img {
+      opacity: 1; }
+  .balloon--animation-reset {
+    opacity: 1; }
+    .balloon--animation-reset .balloon__bckg-img {
+      opacity: 1;
+      animation: 0.5s ease-in 3.9s 1 normal forwards fadeOutToLeft; }
   .balloon__bckg-img {
     position: absolute;
     top: 0;
@@ -51,50 +60,60 @@
     @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
       .balloon__bckg-img {
         background-image: url("./../../../assets/images/stars@2x.png"); } }
-    .animation-start .balloon__bckg-img {
-      animation: 0.5s cubic-bezier(0.5, 0.25, 0.31, 0.955) 1s 1 normal forwards fadeFromLeft; }
-    .animation-ended .balloon__bckg-img {
-      opacity: 1;
-      animation: 0.5s ease-in 3.9s 1 normal forwards fadeOutToLeft; }
   .balloon__img {
-    position: absolute;
     opacity: 0;
     /* Balloon image
     -------------------------------------------------------------- */ }
+    .balloon__img--animation-in {
+      animation: 1.5s ease-in 2.2s normal forwards fadeFromTop; }
+    .balloon__img--animation-out {
+      opacity: 1; }
+    .balloon__img--animation-reset {
+      opacity: 0; }
     .balloon__img--balloon {
-      bottom: 10%;
-      width: 370px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2; }
-      @media only screen and (min-width: 1200px) {
-        .balloon__img--balloon {
-          width: 430px; } }
-      @media only screen and (min-width: 1800px) {
-        .balloon__img--balloon {
-          width: 75%; } }
-      .animation-start .balloon__img--balloon {
-        animation: 1.5s ease-in 2s 1 normal forwards fadeFromTopCenter; }
-      .animation-ended .balloon__img--balloon {
-        opacity: 1;
-        animation: 0.5s ease-in 3.9s 1 normal forwards fadeOut; }
-  .balloon__clouds img {
-    position: absolute;
-    opacity: 0; }
-  .balloon__wrapper {
+      z-index: 2;
+      width: 100%; }
+  .balloon__clouds {
     position: absolute;
     width: 100%;
-    height: 100%; }
-    .animation-balloon-out .balloon__wrapper {
+    height: 100%;
+    opacity: 0; }
+    .balloon__clouds--animation-in {
+      animation: 1.5s ease-in 2.2s normal forwards fadeFromTop; }
+    .balloon__clouds--animation-out {
+      opacity: 1;
+      animation: 1s ease-in 2.3s 1 normal forwards moveDown; }
+    .balloon__clouds--animation-reset {
+      opacity: 1;
+      transform: translateY(20px);
+      animation: 0.5s ease-in 3.9s 1 normal forwards smoothfadeOutToTop; }
+  .balloon__wrapper {
+    position: absolute;
+    width: 370px;
+    height: auto;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; }
+    @media only screen and (min-width: 1200px) {
+      .balloon__wrapper {
+        width: 430px; } }
+    @media only screen and (min-width: 1800px) {
+      .balloon__wrapper {
+        width: 530px; } }
+    .balloon__wrapper--animation-out {
       animation: 4.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 2.3s 1 normal forwards fadeOutToTop; }
+    .balloon__wrapper-pulse {
+      width: 100%;
+      height: 100%;
+      animation: 1.5s linear 4s infinite alternate pulse; }
+      .balloon__wrapper-pulse--animation-out {
+        animation-play-state: paused; }
   .balloon__fire {
     position: absolute;
     left: 50%;
-    bottom: 33%;
+    bottom: 22%;
     width: 40px;
     height: 50px;
     transform: translateX(-50%);
     z-index: 9; }
-    @media only screen and (min-width: 1800px) {
-      .balloon__fire {
-        bottom: 30%; } }
