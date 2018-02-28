@@ -35,12 +35,13 @@ $radius-base:                 5px !default;
 $duration:                    0.5s;
 $duration-normal:               1s;
 $duration-fast:               0.3s;
-$slide-from-top-duration:     1.5s;
+$duration-long:               1.5s;
+$balloon-out-duration:        4.5s;
 
 $delay:                       $duration-normal + $duration-fast;
 $delay-end:                   $delay*3;
 $images-delay:                2.2s;
-$animation-in-end:            $slide-from-top-duration + $images-delay + $duration-fast;
+$animation-in-end:            $duration-long + $images-delay + $duration-fast;
 
 $cubic-brazier:               cubic-bezier(.500, .250, .310, .955);
 $cubic-ease-in:               cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -49,6 +50,7 @@ $fire1-delay:                 $duration-fast;
 $fire2-delay:                 $fire1-delay+$duration;
 $fire3-delay:                 $fire2-delay+$duration;
 $balloon-out-delay:           $fire3-delay+$duration*2;
+$balloon-out-clouds-delay:    $duration-long;
 
 /* Breakpoints
 -------------------------------------------------------------- */

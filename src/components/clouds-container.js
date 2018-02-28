@@ -30,19 +30,16 @@ class CloudsContainer extends Component {
     }
 
     onMouseMove = (e) => {
-
-
         const middleY = this.containerNode.offsetHeight / 2,
             middleX = this.containerNode.offsetWidth / 2,
             mouseX = (e.clientX - this.containerPosition.x),
             mouseY = (e.clientY - this.containerPosition.y);
 
-
         if (this.props.animationState === 'ANIMATION_START') {
             this.setState(
                 {
-                    facX: (mouseX - middleX)/middleX,
-                    facY: (mouseY - middleY)/middleY
+                    facX: (mouseX - middleX) / middleX,
+                    facY: (mouseY - middleY) / middleY
                 })
         }
     }

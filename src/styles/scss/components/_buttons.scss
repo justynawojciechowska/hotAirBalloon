@@ -96,7 +96,7 @@
   }
 
   &--animation-in {
-    animation: $slide-from-top-duration ease-in $images-delay 1 normal forwards fadeFromTop;
+    animation: $duration-long ease-in $images-delay 1 normal forwards fadeFromTop;
   }
 
   &--animation-out{

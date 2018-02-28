@@ -74,9 +74,12 @@ class Balloon extends React.Component {
                         animationState={this.props.animationState}
                         render={(props) => (
                             <Fragment>
-                                <Cloud position='right' multiplier={0.04} {...props}/>
-                                <Cloud position='left' multiplier={0.03}  {...props}/>
-                                <Cloud position='behind' multiplier={0.025} {...props}/>
+                                <Cloud position='right' multiplier={0.04}
+                                       animationState={this.props.animationState} {...props}/>
+                                <Cloud position='left' multiplier={0.03}
+                                       animationState={this.props.animationState}  {...props}/>
+                                <Cloud position='behind' multiplier={0.025}
+                                       animationState={this.props.animationState} {...props}/>
                             </Fragment>
                         )}/>
                 </div>

@@ -8,21 +8,52 @@
   transition: transform 0.3s linear;
 
   &--left {
-    left: -25%;
-    bottom: 0;
+    left: -30%;
+    bottom: 30%;
     width: 70%;
+
+    @media #{$media-lg-xl}{
+      bottom: 25%;
+    }
+
+    &.cloud-img--animation-in {
+      animation: $duration-long ease-in $images-delay normal forwards fadeFromTop
+    }
+
+    &.cloud-img--animation-reset,
+    &.cloud-img--animation-out {
+      transition: transform $duration-normal ease-in;
+    }
   }
 
   &--right {
-    right: -40%;
+    right: -45%;
     bottom: -25%;
     width: 95%;
+
+    &.cloud-img--animation-in {
+      animation: ($duration-long + 0.4s) ease-in $images-delay normal forwards fadeFromTop
+    }
+
+    &.cloud-img--animation-reset,
+    &.cloud-img--animation-out {
+      transition: transform ($duration-normal + 0.3s) ease-in;
+    }
   }
 
   &--behind {
-    bottom: 30%;
-    right: 6%;
+    bottom: 28%;
+    right: 3%;
     width: 35%;
     z-index: 1;
+
+    &.cloud-img--animation-in {
+      animation: ($duration-long + 0.2s) ease-in $images-delay normal forwards fadeFromTop
+    }
+
+    &.cloud-img--animation-reset,
+    &.cloud-img--animation-out {
+      transition: transform ($duration-normal + 0.2s) ease-in;
+    }
   }
 }

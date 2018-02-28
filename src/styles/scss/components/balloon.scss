@@ -57,7 +57,7 @@
     opacity: 0;
 
     &--animation-in {
-      animation: $slide-from-top-duration ease-in $images-delay normal forwards fadeFromTop
+      animation: $duration-long ease-in $images-delay normal forwards fadeFromTop
     }
 
     &--animation-out {
@@ -83,17 +83,15 @@
     opacity: 0;
 
     &--animation-in {
-      animation: $slide-from-top-duration ease-in $images-delay normal forwards fadeFromTop
+      animation: $duration-long ease-in $images-delay normal forwards show;
     }
 
     &--animation-out {
       opacity: 1;
-      animation: $duration-normal ease-in $balloon-out-delay 1 normal forwards moveDown;
     }
 
     &--animation-reset {
       opacity: 1;
-      transform: translateY(20px);
       animation: $duration ease-in $delay-end 1 normal forwards smoothfadeOutToTop;
     }
   }
@@ -118,13 +116,13 @@
     }
 
     &--animation-out {
-      animation: 4.5s $cubic-ease-in $balloon-out-delay 1 normal forwards fadeOutToTop;
+      animation: $balloon-out-duration $cubic-ease-in $balloon-out-delay 1 normal forwards fadeOutToTop;
     }
 
     &-pulse {
       width: 100%;
       height: 100%;
-      animation: 1.5s linear ($slide-from-top-duration + $duration*5) infinite alternate pulse;
+      animation: $duration-long linear ($duration-long + $images-delay + 1s) infinite alternate pulse; //delay calculated on balloon img show delay + ballon img animation duration + 1s
 
       &--animation-out {
         animation-play-state: paused;
